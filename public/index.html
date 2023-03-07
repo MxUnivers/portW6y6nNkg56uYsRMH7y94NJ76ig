@@ -15,18 +15,148 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
     <title>React App</title>
+    <style>
+      /* Compiled dark classes from Tailwind */
+      .dark .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
+        border-color: rgba(55, 65, 81);
+      }
+      .dark .dark\:bg-gray-50 {
+        background-color: rgba(249, 250, 251);
+      }
+      .dark .dark\:bg-gray-100 {
+        background-color: rgba(243, 244, 246);
+      }
+      .dark .dark\:bg-gray-600 {
+        background-color: rgba(75, 85, 99);
+      }
+      .dark .dark\:bg-gray-700 {
+        background-color: rgba(55, 65, 81);
+      }
+      .dark .dark\:bg-gray-800 {
+        background-color: rgba(31, 41, 55);
+      }
+      .dark .dark\:bg-gray-900 {
+        background-color: rgba(17, 24, 39);
+      }
+      .dark .dark\:bg-red-700 {
+        background-color: rgba(185, 28, 28);
+      }
+      .dark .dark\:bg-green-700 {
+        background-color: rgba(4, 120, 87);
+      }
+      .dark .dark\:hover\:bg-gray-200:hover {
+        background-color: rgba(229, 231, 235);
+      }
+      .dark .dark\:hover\:bg-gray-600:hover {
+        background-color: rgba(75, 85, 99);
+      }
+      .dark .dark\:hover\:bg-gray-700:hover {
+        background-color: rgba(55, 65, 81);
+      }
+      .dark .dark\:hover\:bg-gray-900:hover {
+        background-color: rgba(17, 24, 39);
+      }
+      .dark .dark\:border-gray-100 {
+        border-color: rgba(243, 244, 246);
+      }
+      .dark .dark\:border-gray-400 {
+        border-color: rgba(156, 163, 175);
+      }
+      .dark .dark\:border-gray-500 {
+        border-color: rgba(107, 114, 128);
+      }
+      .dark .dark\:border-gray-600 {
+        border-color: rgba(75, 85, 99);
+      }
+      .dark .dark\:border-gray-700 {
+        border-color: rgba(55, 65, 81);
+      }
+      .dark .dark\:border-gray-900 {
+        border-color: rgba(17, 24, 39);
+      }
+      .dark .dark\:hover\:border-gray-800:hover {
+        border-color: rgba(31, 41, 55);
+      }
+      .dark .dark\:text-white {
+        color: rgba(255, 255, 255);
+      }
+      .dark .dark\:text-gray-50 {
+        color: rgba(249, 250, 251);
+      }
+      .dark .dark\:text-gray-100 {
+        color: rgba(243, 244, 246);
+      }
+      .dark .dark\:text-gray-200 {
+        color: rgba(229, 231, 235);
+      }
+      .dark .dark\:text-gray-400 {
+        color: rgba(156, 163, 175);
+      }
+      .dark .dark\:text-gray-500 {
+        color: rgba(107, 114, 128);
+      }
+      .dark .dark\:text-gray-700 {
+        color: rgba(55, 65, 81);
+      }
+      .dark .dark\:text-gray-800 {
+        color: rgba(31, 41, 55);
+      }
+      .dark .dark\:text-red-100 {
+        color: rgba(254, 226, 226);
+      }
+      .dark .dark\:text-green-100 {
+        color: rgba(209, 250, 229);
+      }
+      .dark .dark\:text-blue-400 {
+        color: rgba(96, 165, 250);
+      }
+      .dark .group:hover .dark\:group-hover\:text-gray-500 {
+        color: rgba(107, 114, 128);
+      }
+      .dark .group:focus .dark\:group-focus\:text-gray-700 {
+        color: rgba(55, 65, 81);
+      }
+      .dark .dark\:hover\:text-gray-100:hover {
+        color: rgba(243, 244, 246);
+      }
+      .dark .dark\:hover\:text-blue-500:hover {
+        color: rgba(59, 130, 246);
+      }
+    
+      /* Custom style */
+      .header-right {
+          width: calc(100% - 3.5rem);
+      }
+      .sidebar:hover {
+          width: 16rem;
+      }
+      @media only screen and (min-width: 768px) {
+          .header-right {
+              width: calc(100% - 16rem);
+          }        
+      }
+    </style>
   </head>
-  <body>
+  <body >
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +169,74 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./lib/wow/wow.min.js"></script>
+    <script src="./lib/easing/easing.min.js"></script>
+    <script src="./lib/waypoints/waypoints.min.js"></script>
+    <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="./lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="./lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="./js/main.js"></script>
+
+
+
+    <script>
+      const sidebar = document.querySelector("aside");
+      const maxSidebar = document.querySelector(".max")
+      const miniSidebar = document.querySelector(".mini")
+      const roundout = document.querySelector(".roundout")
+      const maxToolbar = document.querySelector(".max-toolbar")
+      const logo = document.querySelector('.logo')
+      const content = document.querySelector('.content')
+      const moon = document.querySelector(".moon")
+      const sun = document.querySelector(".sun")
+
+      function setDark(val){
+          if(val === "dark"){
+              document.documentElement.classList.add('dark')
+              moon.classList.add("hidden")
+              sun.classList.remove("hidden")
+          }else{
+              document.documentElement.classList.remove('dark')
+              sun.classList.add("hidden")
+              moon.classList.remove("hidden")
+          }
+      }
+
+      function openNav() {
+          if(sidebar.classList.contains('-translate-x-48')){
+              // max sidebar 
+              sidebar.classList.remove("-translate-x-48")
+              sidebar.classList.add("translate-x-none")
+              maxSidebar.classList.remove("hidden")
+              maxSidebar.classList.add("flex")
+              miniSidebar.classList.remove("flex")
+              miniSidebar.classList.add("hidden")
+              maxToolbar.classList.add("translate-x-0")
+              maxToolbar.classList.remove("translate-x-24","scale-x-0")
+              logo.classList.remove("ml-12")
+              content.classList.remove("ml-12")
+              content.classList.add("ml-12","md:ml-60")
+          }else{
+              // mini sidebar
+              sidebar.classList.add("-translate-x-48")
+              sidebar.classList.remove("translate-x-none")
+              maxSidebar.classList.add("hidden")
+              maxSidebar.classList.remove("flex")
+              miniSidebar.classList.add("flex")
+              miniSidebar.classList.remove("hidden")
+              maxToolbar.classList.add("translate-x-24","scale-x-0")
+              maxToolbar.classList.remove("translate-x-0")
+              logo.classList.add('ml-12')
+              content.classList.remove("ml-12","md:ml-60")
+              content.classList.add("ml-12")
+
+          }
+
+      }
+  </script>
   </body>
 </html>
