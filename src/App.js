@@ -7,6 +7,9 @@ import LayoutAdmin from './layout/LayoutAdmin';
 import logo from './logo.svg';
 import AboutUsPage from './pages/AboutUsPage';
 import DashbordPage from './pages/admin/dashbord/DashbordPage';
+import MessageArchivePage from './pages/admin/messages/MessageArchivePage';
+import MessageDetailPage from './pages/admin/messages/MessageDetailPage.js';
+import MessageListPage from './pages/admin/messages/MessageListPage';
 import ProjectAddPage from './pages/admin/projects/ProjectAddPage';
 import ProjectDelete from './pages/admin/projects/ProjectDelete';
 import ProjectEditPage from './pages/admin/projects/ProjectEditPage';
@@ -66,6 +69,12 @@ function App() {
              <Route path={`${routing.project_add}`} element={<ProjectAddPage />} />
              <Route path={`${routing.project_edit}/:id`} element={<ProjectEditPage />} />
              <Route path={`${routing.project_delete}/:id`} element={<ProjectDelete />} />
+
+             {/* message */}
+             <Route path={`${routing.message_list}`} element={<MessageListPage />} />
+             <Route path={`${routing.message_view}/:id`} element={<MessageDetailPage />} />
+             <Route path={`${routing.message_delete}/:id`} element={<MessageArchivePage />} />
+
 
               {/* Paramètre des pages */}
              <Route path={`${routing.parameter_page}`} element={<SettingPage />} />

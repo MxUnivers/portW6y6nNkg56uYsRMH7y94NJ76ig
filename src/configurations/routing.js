@@ -39,6 +39,7 @@ export const  routing  =  {
     message_edit:"modifier-cet-message",
     message_delete:"supprimer-cet-message",
     message_write:"supprimer-cet-message",
+    message_view:"voir-message",
 
     // activtés du site web
     blog_list:"listes-des-blogs-de-mon-application",
