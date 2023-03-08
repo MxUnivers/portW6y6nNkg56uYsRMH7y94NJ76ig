@@ -1,7 +1,7 @@
 
 
 export const baseurl = {
-    urlapi: "localhost:1000/api/v1",
+    urlapi: "http://localhost:1000",
     // header
     accept: "Application/json",
     contentType: "application/json",

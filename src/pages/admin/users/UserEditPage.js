@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Retour from '../../../configurations/functionList';
 
 const UserEditPage = () => {
+    const [username, setusername] = useState("");
+    const [firstname, setfirstname] = useState("");
+    const [lastname, setlastname] = useState("");
+    const [email, setemail] = useState("");
+    const [telephone, settelephone] = useState("");
+
+    
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 

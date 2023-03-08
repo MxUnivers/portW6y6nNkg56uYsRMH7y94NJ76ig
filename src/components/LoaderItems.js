@@ -3,7 +3,7 @@ import React from 'react'
 const LoaderItems = () => {
   return (
     
-    <div class="px-4 py-12">
+    <div class="px-4 py-12 w-full flex flex-row justify-center items-center">
       <div class="rounded relative">
         <div
           class="rounded-full bg-indigo-200 w-[190px] h-[190px] relative flex justify-center items-center mx-auto animate-spin"
@@ -41,4 +41,4 @@ const LoaderItems = () => {
   )
 }
 
-export default LoaderItems
+export default LoaderItems;

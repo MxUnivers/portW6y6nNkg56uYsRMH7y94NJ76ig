@@ -14,15 +14,8 @@ const UserAddPage = () => {
 
     
     return (
-        <form class="h-full ml-14 mt-14 mb-10 md:ml-64"
-        onSubmit={(e)=>{
-            e.preventDefault();
-            if(password ==  confirPassword){
-                CreateNewUser(username,firstname, lastname,email,telephone,password);
-            }else{
-                setmsgPassword("Confirmation mot de passe  incorrete !");
-            }
-        }}>
+        <div class="h-full ml-14 mt-14 mb-10 md:ml-64"
+        >
 
             <div class=" relative grid min-h-screen place-items-center">
                 <div class=" bg-gray-600 w-3/3 p-12  sm:w-3/3 md:w-3/3 lg:w-2/3">
@@ -33,7 +26,17 @@ const UserAddPage = () => {
                     >retour</button>
                     <h1 class=" text-2xl font-semibold">Ajouter un nouvelle utlisateur</h1>
                     <p>saisir touts les information avec * </p>
-                    <div class="mt-6">
+                    <form  
+                    onSubmit={(e)=>{
+                        e.preventDefault();
+                        CreateNewUser(username,firstname, lastname,email,telephone,password);
+            
+                        // if(password ==  confirPassword){
+                        // }else{
+                        //     setmsgPassword("Confirmation mot de passe  incorrete !");
+                        // }
+                    }}
+                     class="mt-6">
                         <div class="flex justify-between gap-3">
                             <span class="w-1/2">
                                 <label class="block text-xs font-semibold text-gray-200 uppercase">Nom  d{"'"} utilisateur</label>
@@ -57,7 +60,7 @@ const UserAddPage = () => {
                         <input  value={password} onChange={(e)=>{setpassword(e.target.value)}} type="password" name="password" placeholder="********" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 
                         <label class="block mt-2 text-xs font-semibold text-gray-200 uppercase">Confirmer mot de passe</label>
-                        <input type="password" name="password-confirm" placeholder="********" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+                        <input value={confirPassword} onChange={(e)=>{setconfirPassword(e.target.value)}} type="password" name="password-confirm" placeholder="********" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 
                         <label class="block mt-2 text-xs font-semibold text-gray-200 uppercase">{}</label>
 
@@ -65,10 +68,10 @@ const UserAddPage = () => {
                             + Créer utlisateur
                         </button>
                         <p class="flex justify-between inline-block mt-4 text-xs text-gray-500 cursor-pointer hover:text-black">Already registered?</p>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     )
 }
 

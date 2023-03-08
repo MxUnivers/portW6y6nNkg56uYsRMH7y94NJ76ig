@@ -19,7 +19,7 @@ import ServiceDelete from './pages/admin/services/ServiceDelete';
 import ServiceEditPage from './pages/admin/services/ServiceEditPage';
 import ServiceListPage from './pages/admin/services/ServiceListPage';
 import SettingPage from './pages/admin/settings/SettingPage';
-import UserAddPage from './pages/admin/users/UserAddPage copy';
+import UserAddPage from './pages/admin/users/UserAddPage';
 import UserDeletePage from './pages/admin/users/UserDeletePage';
 import UserEditPage from './pages/admin/users/UserEditPage';
 import UserListPage from './pages/admin/users/UserListPage';

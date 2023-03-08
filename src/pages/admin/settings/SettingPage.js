@@ -33,7 +33,6 @@ const SettingPage = () => {
             setbtnservice(active_parameter[1].name);
             setbtnproject(active_parameter[1].name);
             setbtncontact(active_parameter[1].name);
-        }else if (index==2){
             setbtnhome(active_parameter[1].name);
             setbtnabout(active_parameter[1].name);
             setbtnservice(active_parameter[0].name);

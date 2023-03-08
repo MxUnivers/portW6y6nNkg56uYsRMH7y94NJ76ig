@@ -5,6 +5,7 @@ import { baseurl } from "../../configurations/baseUrl";
 export const CreateNewUser = async (
     username, firstname, lastname, email, telephone, password
     ) => {
+        console.log(username, firstname,lastname,email,telephone,password);
     var data = JSON.stringify({
         "username": username,
         "firstname": firstname,
