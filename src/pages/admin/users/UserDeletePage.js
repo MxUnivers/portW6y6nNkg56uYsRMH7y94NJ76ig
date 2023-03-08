@@ -1,6 +1,10 @@
 import React from 'react'
+import { DeleteUser } from '../../../actions/api/user_action';
+import { localvalue } from '../../../configurations/localvalue';
 
 const UserDeletePage = () => {
+    var id = localStorage.getItem(localvalue.idUser);
+
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
@@ -8,7 +12,10 @@ const UserDeletePage = () => {
                 <div class=" bg-gray-600 w-3/3 p-12  sm:w-3/3 md:w-3/3 lg:w-2/3">
                     <h1 class=" text-2xl font-semibold">Supprimer cet utlisateur</h1>
                     <p>cet utlisateur sera supprimer * </p>
-                    <form class="mt-6">
+                    <form class="mt-6" onSubmit={(e)=>{
+                        e.preventDefault()
+                        DeleteUser(id);
+                    }}>
 
 
                         <div class="flex flex-row space-x-3">

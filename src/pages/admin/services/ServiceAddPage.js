@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { CreateNewService } from '../../../actions/api/service_action';
 import Retour from '../../../configurations/functionList'
 
 const ServiceAddPage = () => {
+    const [name, setname] = useState("");
+    const [coverPicture, setcoverPicture] = useState("");
+    const [description, setdescription] = useState("");
+    
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
@@ -19,6 +24,9 @@ const ServiceAddPage = () => {
                 </div>
                     <form
                         class="py-6 px-9"
+                        onSubmit={(e)=>{
+                            CreateNewService(name,coverPicture,description)
+                        }}
                     >
                         <div class="mb-5">
                             <label
@@ -27,7 +35,7 @@ const ServiceAddPage = () => {
                             >
                                 Nom du service  :
                             </label>
-                            <input
+                            <input value={name} onChange={(e)=>{setname(e.target.value)}}
                                 type="email"
                                 name="email"
                                 id="email"
@@ -71,11 +79,7 @@ const ServiceAddPage = () => {
                                 >
                                     Description du service  :
                                 </label>
-                                <textarea
-                                    type="email"
-                                    name="email"
-                                    value="description su service"
-                                    id="email"
+                                <textarea value={description} onChange={(e)=>{setdescription(e.target.value)}}
                                     placeholder="description du service"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                 />

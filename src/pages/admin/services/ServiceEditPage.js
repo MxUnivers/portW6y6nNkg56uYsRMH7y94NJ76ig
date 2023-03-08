@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { LoadAllServiceById, UpdateService } from '../../../actions/api/service_action';
 import Retour from '../../../configurations/functionList'
+import { localvalue } from '../../../configurations/localvalue';
 
 const ServiceEditPage = () => {
+    var id  = localStorage.getItem(localvalue.idService);
+    const [name, setname] = useState("");
+    const [coverPicture, setcoverPicture] = useState("");
+    const [description, setdescription] = useState("");
+    const [visible, setvisible] = useState(true);
+
+    useEffect(() => {
+        LoadAllServiceById(id,setname,setcoverPicture,setdescription,setvisible)
+    }, [])
+    
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
@@ -19,15 +31,34 @@ const ServiceEditPage = () => {
                     </div>
                     <form
                         class="py-6 px-9"
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            UpdateService(id ,name, coverPicture,description,visible)
+                        }}
                     >
+                        <div class="mb-5 ">
+                            <label
+                                for="email"
+                                class="flex space-x-3 justify-start items-start text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={visible} onChange={(e) => { setname(e.target.value) }}
+                                    placeholder="nom du projet"
+                                    class="rounded-md border h-[19px] w-[20px] border-[#e0e0e0] bg-white py-3 px-1 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+                                <p class="text-base">visibilté du prohet sur le site</p>
+                            </label>
+
+                        </div>
                         <div class="mb-5">
                             <label
                                 for="email"
-                                class=" text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                                class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
                             >
                                 Nom du service  :
                             </label>
-                            <input
+                            <input value={name} onChange={(e) => { setname(e.target.value) }}
                                 type="email"
                                 name="email"
                                 id="email"
@@ -37,7 +68,7 @@ const ServiceEditPage = () => {
                         </div>
 
                         <div class="mb-6 pt-4 ">
-                            <label class=" text-gray-100 mb-5 block text-xl font-semibold text-[#07074D]">
+                            <label class="text-gray-100 mb-5 block text-xl font-semibold text-[#07074D]">
                                 Fichier image :
                             </label>
 
@@ -67,26 +98,17 @@ const ServiceEditPage = () => {
                             <div class="mb-5">
                                 <label
                                     for="email"
-                                    class=" text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                                    class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
                                 >
                                     Description du service  :
                                 </label>
-                                <textarea
-                                    type="email"
-                                    name="email"
-                                    value="description su service"
-                                    id="email"
+                                <textarea value={description} onChange={(e) => { setdescription(e.target.value) }}
                                     placeholder="description du service"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                 />
                             </div>
-                            <div class="mb-5 flex flex-row items-center justify-center space-x-3 ">
-                                <label for="email" class="text-gray-100 pr-5 mb-3 block text-base font-medium text-[#07074D]">
-                                    Visibilité 
-                                    <input type="checkbox" id="visible" class="w-full rounded-md border h-5 border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                                    />
-                                </label>
-                            </div>
+
+
                         </div>
 
                         <div>

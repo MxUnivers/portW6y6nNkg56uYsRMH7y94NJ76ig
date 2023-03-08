@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Retour from '../../../configurations/functionList'
 import { useQuill } from 'react-quilljs';
 
 const ProjectAddPage = () => {
-    const { quill, quillRef, Quill } = useQuill();
-    // useEffect(() => {
-    //     if (quill) {
-    //         quill.clipboard.dangerouslyPasteHTML('<h1>Bonne rédaction</h1>');
-    //     }
-    // }, [quill]);
+    const [name, setname] = useState("");
+    const [coverPicture, setcoverPicture] = useState("");
+    const [description, setdescription] = useState("");
+    const [content, setcontent] = useState("");
+    const [video, setvideo] = useState("");
+
+
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
@@ -35,10 +36,9 @@ const ProjectAddPage = () => {
                                 Nom du service  :
                             </label>
                             <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                placeholder="nom du service"
+                                type="text"
+                                value={name} onChange={(e)=>{setname(e.target.value)}}
+                                placeholder="nom du projet"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             />
                         </div>
@@ -73,13 +73,13 @@ const ProjectAddPage = () => {
 
                             <div class="mb-5">
                                 <label
-                                    for="email"
                                     class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
                                 >
                                     Description du service  :
                                 </label>
                                 <textarea
-                                    type="email" name="email" value="description su service" id="email" placeholder="description du service"
+                                value={description} onChange={(e)=>{setdescription(e.target.value)}}
+                                 placeholder="description du service"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                 />
                             </div>
@@ -89,7 +89,9 @@ const ProjectAddPage = () => {
                             <label for="email" class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]">
                                 plus de details sur le projet : 
                             </label>
-                            <textarea type={"text"} placeholder="ecrire ici ..." class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            <textarea 
+                            value={content} onChange={(e)=>{setcontent(e.target.value)}}
+                             type={"text"} placeholder="ecrire ici ..." class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
 
                         <div>

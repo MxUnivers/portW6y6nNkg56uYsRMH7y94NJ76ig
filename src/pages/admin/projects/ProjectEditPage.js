@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { UpdateProject } from '../../../actions/api/project_action';
 import Retour from '../../../configurations/functionList'
+import { localvalue } from '../../../configurations/localvalue';
 
 const ProjectEditPage = () => {
+    var id = localStorage.getItem(localvalue.idProject);
+
+    const [name, setname] = useState("");
+    const [coverPicture, setcoverPicture] = useState("");
+    const [description, setdescription] = useState("");
+    const [content, setcontent] = useState("");
+    const [visible, setvisible] = useState(true);
+    const [video, setvideo] = useState("");
+
+
+
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
@@ -17,20 +30,40 @@ const ProjectEditPage = () => {
                     <div class="p-3  bg-gray-100 rounded-t-lg">
                         <h2 class="text-3xl text-gray-500 ">Ajouter un nouveau projet ...</h2>
                     </div>
-                    <form
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+                        UpdateProject(id, name, coverPicture, description, content, visible)
+                    }}
                         class="py-6 px-9"
                     >
-                        <div class="mb-5">
-                            <label for="email" class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]">
-                                Nom du service  :
+                        <div class="mb-5 ">
+                            <label
+                                for="email"
+                                class="flex space-x-3 justify-start items-start text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={visible} onChange={(e) => { setname(e.target.value) }}
+                                    placeholder="nom du projet"
+                                    class="rounded-md border h-[19px] w-[20px] border-[#e0e0e0] bg-white py-3 px-1 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+                                <p class="text-base">visibilté du prohet sur le site</p>
                             </label>
-                            <input type="email" name="email" id="email"placeholder="nom du service" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
+
                         </div>
                         <div class="mb-5">
-                          <div class="flex space-x-3">
-                            <label class="text-gray-100">visibilté</label>
-                            <input type={"checkbox"} checked={true} class="h-[20px] w-[20px]"/>
-                          </div>
+                            <label
+                                for="email"
+                                class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                            >
+                                Nom du projet  :
+                            </label>
+                            <input
+                                type="text"
+                                value={name} onChange={(e) => { setname(e.target.value) }}
+                                placeholder="nom du projet"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            />
                         </div>
 
                         <div class="mb-6 pt-4 ">
@@ -40,7 +73,10 @@ const ProjectEditPage = () => {
 
                             <div class="mb-8 bg-gray-100">
                                 <input type="file" name="file" id="file" accept=".JPEG,.PNG,.JPG" class="sr-only" />
-                                <label for="file" class="relative cursor-pointer flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center">
+                                <label
+                                    for="file"
+                                    class="relative cursor-pointer flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
+                                >
                                     <div>
                                         <span class="mb-2 block text-xl font-semibold text-[#07074D]">
                                             Drop files here
@@ -48,7 +84,9 @@ const ProjectEditPage = () => {
                                         <span class="mb-2 block text-base font-medium text-[#6B7280]">
                                             Or
                                         </span>
-                                        <span class="inline-flex rounded border border-[#e0e0e0] py-2 px-7 text-base font-medium text-[#07074D]" >
+                                        <span
+                                            class="inline-flex rounded border border-[#e0e0e0] py-2 px-7 text-base font-medium text-[#07074D]"
+                                        >
                                             Browse PNG , JPEG  , JPG
                                         </span>
                                     </div>
@@ -57,19 +95,26 @@ const ProjectEditPage = () => {
                             </div>
 
                             <div class="mb-5">
-                                <label for="email" class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]" >
+                                <label
+                                    class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                                >
                                     Description du service  :
                                 </label>
                                 <textarea
-                                    type="email" name="email" value="description su service" id="email" placeholder="description du service" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                    value={description} onChange={(e) => { setdescription(e.target.value) }}
+                                    placeholder="description du service"
+                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
                             </div>
                             {/* quill js */}
                         </div>
                         <div class="mb-5">
-                            <label for="email" class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]">
-                                plus de details sur le projet : 
+                            <label class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]">
+                                plus de details sur le projet :
                             </label>
-                            <textarea type={"text"} placeholder="ecrire ici ..." class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            <textarea
+                                value={content} onChange={(e) => { setcontent(e.target.value) }}
+                                type={"text"} placeholder="ecrire ici ..." class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
 
                         <div>

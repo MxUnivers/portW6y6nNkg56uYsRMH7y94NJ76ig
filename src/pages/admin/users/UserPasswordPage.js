@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { UpdateUserPassword } from '../../../actions/api/user_action';
+import { localvalue } from '../../../configurations/localvalue'
 
 const UserPasswordPage = () => {
+    var id  =  localStorage.getItem(localvalue.idUser);
+    const [password, setpassword] = useState("");
+    const [confirmPassword, setconfirmPassword] = useState("");
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
@@ -13,13 +18,18 @@ const UserPasswordPage = () => {
                 >retour</button>
                     <h1 class=" text-2xl font-semibold">Modifier mot de passe</h1>
                     <p>saisir touts les information avec * </p>
-                    <form class="mt-6">
+                    <form class="mt-6"
+                    onSubmit={(e)=>{
+                        e.preventDefault();
+                        UpdateUserPassword(id, password)
+                    }}
+                    >
                         
-                        <label for="lastname" class="block mt-2 text-xs font-semibold text-gray-200 uppercase">Mot de passe</label>
-                        <input id="lastname" type="password" name="password" placeholder="*******" autocomplete="password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+                        <label value={password} onChange={(e)=>{setpassword(e.target.value)}} class="block mt-2 text-xs font-semibold text-gray-200 uppercase">Mot de passe</label>
+                        <input value={password} onChange={(e)=>{setpassword(e.target.value)}} type="password" name="password" placeholder="*******" autocomplete="password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                         
-                        <label for="email" class="block mt-2 text-xs font-semibold text-gray-200 uppercase">Confirmer mot de passe</label>
-                        <input id="email" type="password" name="password" placeholder="********" autocomplete="confirm-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+                        <label value={password} onChange={(e)=>{setconfirmPassword(e.target.value)}} class="block mt-2 text-xs font-semibold text-gray-200 uppercase">Confirmer mot de passe</label>
+                        <input value={password} onChange={(e)=>{setconfirmPassword(e.target.value)}} type="password" name="password" placeholder="********" autocomplete="confirm-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                         
                         
                         <button type="submit" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">

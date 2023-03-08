@@ -1,22 +1,20 @@
 import axios from "axios";
+import { redirect } from "react-router-dom";
 import { baseurl } from "../../configurations/baseUrl";
 
 
-export const CreateNewUser = async (
-    username, firstname, lastname, email, telephone, password
-    ) => {
-        console.log(username, firstname,lastname,email,telephone,password);
+export const CreateNewMessage = async (
+    name, email, subject, content
+) => {
     var data = JSON.stringify({
-        "username": username,
-        "firstname": firstname,
-        "lastname": lastname,
+        "name": name,
         "email": email,
-        "telephone": telephone,
-        "password": password,
+        "subject": subject,
+        "content": content,
     });
     var config = {
         method: 'post',
-        url: `${baseurl.urlapi}/api/v1/users/`,
+        url: `${baseurl.urlapi}/api/v1/messages/`,
         headers: {
             'Content-Type': 'application/json',
         },
@@ -35,66 +33,23 @@ export const CreateNewUser = async (
 
 
 
-export const UpdateUser = async (id, username, firstname, lastname, email, telephone) => {
+export const UpdateMessage = async (id, name, coverPicture, description, content, visible) => {
     var data = JSON.stringify({
-        "username": username,
-        "firstname": firstname,
-        "lastname": lastname,
-        "email": email,
-        "telephone": telephone,
+        "name": name,
+        "description": description,
+        "coverPicture": coverPicture,
+        "content": content,
+        "visible": visible
     });
     var config = {
         method: 'put',
-        url: `${baseurl.urlapi}/api/v1/users/${id}`,
+        url: `${baseurl.urlapi}/api/v1/messages/${id}`,
         headers: {
             'Content-Type': 'application/json',
         },
         data: data
     };
     await axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            window.location.reload();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-
-export const UpdateUserPassword = async (id,password) => {
-    var data = JSON.stringify({
-        "password": password
-    });
-    var config = {
-        method: 'put',
-        url: `${baseurl.urlapi}/api/v1/users/auth/password/${id}`,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        data: data
-    };
-    await axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            window.location.reload();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-
-export const DeleteUser = async (id) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/users/hide/${id}`)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            window.location.reload();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-export const ShowUser = async (id) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/users/show/${id}`)
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
@@ -108,8 +63,8 @@ export const ShowUser = async (id) => {
 
 
 // Charger
-export const LoadAllUsers = async (SetState) => {
-    await axios.get(`${baseurl.urlapi}/api/v1/users/get/all`, {
+export const LoadAllMessages = async (SetState) => {
+    await axios.get(`${baseurl.urlapi}/api/v1/messages/get/all`, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -123,20 +78,62 @@ export const LoadAllUsers = async (SetState) => {
         });
 }
 
-export const LoadAllUserById = async (
-    id, username, firstname, lastname, email, telephone) => {
-    await axios.get(`${baseurl.urlapi}/api/v1/users/${id}`, {
+export const LoadAllMessagesArchive = async (SetState) => {
+    await axios.get(`${baseurl.urlapi}/api/v1/messages/get/all/archives`, {
         headers: {
             'Content-Type': 'application/json',
         }
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
-            username(response.data.username);
-            firstname(response.data.firstname);
-            lastname(response.data.lastname);
-            email(response.data.email);
-            telephone(response.data.telephone);
+            SetState(response.data.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+export const LoadAllMessageById = async (id,name, email, subject, content) => {
+    await axios.get(`${baseurl.urlapi}/api/v1/messages/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            name(response.data.name);
+            email(response.data.coverPicture);
+            subject(response.data.description);
+            content(response.data.content);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
+export const DeleteMessage = async (id) => {
+    await axios.put(`${baseurl.urlapi}/api/v1/messages/hide/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(function (response) {
+            console.log(JSON.stringify(response.data.message));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+export const RecycleMessage = async (id) => {
+    await axios.put(`${baseurl.urlapi}/api/v1/messages/show/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(function (response) {
+            console.log(JSON.stringify(response.data.message));
         })
         .catch(function (error) {
             console.log(error);

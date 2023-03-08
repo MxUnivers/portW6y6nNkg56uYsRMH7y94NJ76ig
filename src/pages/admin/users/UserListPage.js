@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { LoadAllUsers } from '../../../actions/api/user_action';
 import LoaderItems from '../../../components/LoaderItems';
+import { SetInformationUser } from '../../../configurations/functionList';
 import { routing } from '../../../configurations/routing';
 
 const UserListPage = () => {
-    const [userlist, setuserlist] = useState([]);
+    const [userlist, setuserlist] = useState([1]);
     useEffect(() => {
         LoadAllUsers(setuserlist);
     }, []);
@@ -75,21 +76,24 @@ const UserListPage = () => {
                                                             {item.status == true ?
                                                                 (
                                                                     <span class="px-2 py-1 font-semibold leading-tight text-green-700  rounded-full"> connecté </span>
-                                                                ):
+                                                                ) :
                                                                 (
                                                                     <span class="px-2 py-1 font-semibold leading-tight text-red-700  rounded-full"> déconnecté </span>
                                                                 )
                                                             }
                                                         </td>
                                                         <td class="px-4 py-3 text-sm space-x-1">
-                                                            <a href={`/${routing.admin}/${routing.userlist}/${routing.useredit}/:id`} class="bg-lime-700 text-white py-2 px-3 rounded-lg">
-                                                                modifier
+                                                            <a href={`/${routing.admin}/${routing.userlist}/${routing.useredit}/:id`} class="text-green-200  px-3 rounded-lg underline"
+                                                                onClick={SetInformationUser(item._id)}>
+                                                                edit
                                                             </a>
-                                                            <a href={`/${routing.admin}/${routing.userlist}/${routing.userpaswword}/:id`} class=" text-amber-500 py-2 px-3 rounded-lg">
+                                                            <a href={`/${routing.admin}/${routing.userlist}/${routing.userpaswword}/:id`} class=" text-gray-400 py-2 px-3 underline"
+                                                                onClick={SetInformationUser(item._id)}>
                                                                 password
                                                             </a>
-                                                            <a href={`/${routing.admin}/${routing.userlist}/${routing.userdelete}/:id`} class="bg-red-600 text-white py-2 px-3 rounded-lg">
-                                                                supprimer
+                                                            <a href={`/${routing.admin}/${routing.userlist}/${routing.userdelete}/:id`} class="text-red-300 py-2 px-3 rounded-lg underline"
+                                                                onClick={SetInformationUser(item._id)}>
+                                                                delete
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -98,7 +102,7 @@ const UserListPage = () => {
                                         }
                                     </tbody>
                                 ) :
-                                    <LoaderItems/>
+                                    <LoaderItems />
                             }
                         </table>
                     </div>
