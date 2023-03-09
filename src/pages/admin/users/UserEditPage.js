@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { LoadAllUserById, UpdateUser } from '../../../actions/api/user_action';
 import Retour from '../../../configurations/functionList';
 import { localvalue } from '../../../configurations/localvalue';
 
 const UserEditPage = () => {
+    const redirect  = useNavigate();
+
     var id = localStorage.getItem(localvalue.idUser);
     const [username, setusername] = useState("");
     const [firstname, setfirstname] = useState("");
@@ -27,7 +30,7 @@ const UserEditPage = () => {
                     <form class="mt-6"
                     onSubmit={(e)=>{
                         e.preventDefault();
-                        UpdateUser(id,username,firstname,lastname,email,telephone);
+                        UpdateUser(id,username,firstname,lastname,email,telephone, redirect);
                     }}>
                         <div class="flex justify-between gap-3">
                             <span class="w-1/2">

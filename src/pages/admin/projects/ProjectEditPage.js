@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { UpdateProject } from '../../../actions/api/project_action';
 import Retour from '../../../configurations/functionList'
 import { localvalue } from '../../../configurations/localvalue';
 
 const ProjectEditPage = () => {
+    const redirect  = useNavigate();
+
     var id = localStorage.getItem(localvalue.idProject);
 
     const [name, setname] = useState("");

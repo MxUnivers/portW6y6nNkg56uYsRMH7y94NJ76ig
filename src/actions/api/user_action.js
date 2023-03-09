@@ -1,9 +1,10 @@
 import axios from "axios";
 import { baseurl } from "../../configurations/baseUrl";
+import { routing } from "../../configurations/routing";
 
 
 export const CreateNewUser = async (
-    username, firstname, lastname, email, telephone, password
+    username, firstname, lastname, email, telephone, password,redirect
     ) => {
         console.log(username, firstname,lastname,email,telephone,password);
     var data = JSON.stringify({
@@ -26,6 +27,7 @@ export const CreateNewUser = async (
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
+            redirect(`/${routing.admin}/${routing.userlist}`);
         })
         .catch(function (error) {
             console.log(error);
@@ -35,7 +37,7 @@ export const CreateNewUser = async (
 
 
 
-export const UpdateUser = async (id, username, firstname, lastname, email, telephone) => {
+export const UpdateUser = async (id, username, firstname, lastname, email, telephone, redirect) => {
     var data = JSON.stringify({
         "username": username,
         "firstname": firstname,
@@ -55,19 +57,46 @@ export const UpdateUser = async (id, username, firstname, lastname, email, telep
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
+            redirect(`/${routing.admin}/${routing.userlist}`);
         })
         .catch(function (error) {
             console.log(error);
         });
 }
 
-export const UpdateUserPassword = async (id,password) => {
+
+
+export const DeleteUser = async (id, redirect) => {
+    await axios.put(`${baseurl.urlapi}/api/v1/users/hide/${id}`)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            window.location.reload();
+            redirect(`/${routing.admin}/${routing.userlist}`);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+export const ShowUser = async (id, redirect) => {
+    await axios.put(`${baseurl.urlapi}/api/v1/users/show/${id}`)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            window.location.reload();
+            redirect(`/${routing.admin}/${routing.userlist}`);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
+export const UpdateUserPassword = async (id,password, redirect) => {
     var data = JSON.stringify({
         "password": password
     });
     var config = {
         method: 'put',
-        url: `${baseurl.urlapi}/api/v1/users/auth/password/${id}`,
+        url: `${baseurl.urlapi}/api/v1/auth/password/${id}`,
         headers: {
             'Content-Type': 'application/json',
         },
@@ -77,33 +106,13 @@ export const UpdateUserPassword = async (id,password) => {
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
+            redirect(`/${routing.admin}/${routing.userlist}`);
 
-export const DeleteUser = async (id) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/users/hide/${id}`)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            window.location.reload();
         })
         .catch(function (error) {
             console.log(error);
         });
 }
-export const ShowUser = async (id) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/users/show/${id}`)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            window.location.reload();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-
 
 
 

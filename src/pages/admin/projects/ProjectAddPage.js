@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Retour from '../../../configurations/functionList'
 import { useQuill } from 'react-quilljs';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectAddPage = () => {
+    const redirect  = useNavigate();
+
     const [name, setname] = useState("");
     const [coverPicture, setcoverPicture] = useState("");
     const [description, setdescription] = useState("");

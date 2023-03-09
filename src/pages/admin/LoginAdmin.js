@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const LoginAdmin = () => {
+    const [username, setusername] = useState();
+    const [password, setpassword] = useState();
 
     //const bg  = "https://images.unsplash.com/photo-1499123785106-343e69e68db1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80"
     const bg = "https://images.pexels.com/photos/2422293/pexels-photo-2422293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
@@ -18,11 +20,11 @@ const LoginAdmin = () => {
                     </div>
                     <form action="#">
                         <div class="mb-4 text-lg">
-                            <input class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="name" placeholder="nom d'utilisateur..." />
+                            <input value={username} onChange={(e)=>{setusername(e.target.value)}} class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="name" placeholder="nom d'utilisateur..." />
                         </div>
 
                         <div class="mb-4 text-lg">
-                            <input class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="Password" name="name" placeholder="mot de passe ***" />
+                            <input value={password} onChange={(e)=>{setpassword(e.target.value)}} class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="Password" name="name" placeholder="mot de passe ***" />
                         </div>
                         <div class="mt-8 flex justify-center text-lg text-black">
                             <button type="submit" class="rounded-3xl bg-yellow-400 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">se connecter</button>

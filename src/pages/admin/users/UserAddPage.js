@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { CreateNewUser } from '../../../actions/api/user_action';
 
 const UserAddPage = () => {
+    const redirect  = useNavigate();
 
     const [username, setusername] = useState("");
     const [firstname, setfirstname] = useState("");
@@ -29,7 +31,7 @@ const UserAddPage = () => {
                     <form  
                     onSubmit={(e)=>{
                         e.preventDefault();
-                        CreateNewUser(username,firstname, lastname,email,telephone,password);
+                        CreateNewUser(username,firstname, lastname,email,telephone,password,redirect);
             
                         // if(password ==  confirPassword){
                         // }else{

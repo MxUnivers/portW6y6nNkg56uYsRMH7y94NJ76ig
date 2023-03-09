@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { UpdateUserPassword } from '../../../actions/api/user_action';
 import { localvalue } from '../../../configurations/localvalue'
 
 const UserPasswordPage = () => {
+    const redirect  = useNavigate();
+
     var id  =  localStorage.getItem(localvalue.idUser);
     const [password, setpassword] = useState("");
     const [confirmPassword, setconfirmPassword] = useState("");
@@ -21,7 +24,7 @@ const UserPasswordPage = () => {
                     <form class="mt-6"
                     onSubmit={(e)=>{
                         e.preventDefault();
-                        UpdateUserPassword(id, password)
+                        UpdateUserPassword(id, password,redirect);
                     }}
                     >
                         

@@ -1,9 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { DeleteProject } from '../../../actions/api/project_action';
 import Retour from '../../../configurations/functionList'
 import { localvalue } from '../../../configurations/localvalue'
 
 const ProjectDelete = () => {
+    const redirect  = useNavigate();
+
     var  id =  localStorage.getItem(localvalue.idProject);
   return (
     <div class="h-full ml-14 mt-14 mb-10 md:ml-64">

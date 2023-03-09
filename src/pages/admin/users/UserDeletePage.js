@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { DeleteUser } from '../../../actions/api/user_action';
 import { localvalue } from '../../../configurations/localvalue';
 
 const UserDeletePage = () => {
+    const redirect  = useNavigate();
+
     var id = localStorage.getItem(localvalue.idUser);
 
     return (
@@ -14,7 +17,7 @@ const UserDeletePage = () => {
                     <p>cet utlisateur sera supprimer * </p>
                     <form class="mt-6" onSubmit={(e)=>{
                         e.preventDefault()
-                        DeleteUser(id);
+                        DeleteUser(id,redirect);
                     }}>
 
 
