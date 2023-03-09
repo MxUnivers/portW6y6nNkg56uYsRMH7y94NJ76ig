@@ -56,6 +56,7 @@ const ServiceAddPage = () => {
                     <form
                         class="py-6 px-9"
                         onSubmit={(e)=>{
+                            e.preventDefault();
                             CreateNewService(name,coverPicture,description,redirect)
                         }}
                     >
@@ -67,9 +68,7 @@ const ServiceAddPage = () => {
                                 Nom du service  :
                             </label>
                             <input value={name} onChange={(e)=>{setname(e.target.value)}}
-                                type="email"
-                                name="email"
-                                id="email"
+                                type="text"
                                 placeholder="nom du service"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             />
@@ -81,7 +80,7 @@ const ServiceAddPage = () => {
                             </label>
 
                             <div class="mb-8 bg-gray-100">
-                                <input onChange={HandleFileInputChangePhoto} type="file" accept='.JPEG, .PNG,.JPG' class="sr-only" />
+                                <input onChange={HandleFileInputChangePhoto} id="file" name="file" type="file" accept='.JPEG, .PNG,.JPG' class="sr-only" />
                                 <label
                                     for="file"
                                     class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"

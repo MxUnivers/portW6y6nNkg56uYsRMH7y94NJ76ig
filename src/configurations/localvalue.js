@@ -15,6 +15,9 @@ export const  localvalue = {
     idProject:"idProject",
     contentProject:"contentProject",
 
+    idMessage: "idMessage",
+    contentMessage:"contentMessage",
+
     visitCount:"visitCount",
     firtVisit:"firtVisit",
     lastVisit:"lastVisit"

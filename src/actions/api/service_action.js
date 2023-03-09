@@ -88,10 +88,10 @@ export const LoadAllServiceById = async (id,name,coverPicture,description,visibl
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
-            name(response.data.name);
-            coverPicture(response.data.coverPicture);
-            description(response.data.description);
-            visible(response.data.visible);
+            name(response.data.data.name);
+            coverPicture(response.data.data.coverPicture);
+            description(response.data.data.description);
+            visible(response.data.data.visible);
         })
         .catch(function (error) {
             console.log(error);
@@ -108,7 +108,6 @@ export const DeleteService = async (id,redirect) => {
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             redirect(`/${routing.admin}/${routing.servicelist}`);
-
         })
         .catch(function (error) {
             console.log(error);

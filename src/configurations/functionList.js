@@ -1,11 +1,9 @@
 import { localvalue } from "./localvalue";
 
-
 const Retour = () => {
     window.history.back();
 }
 export default Retour;
-
 
 // user
 export const SetInformationUser = (item) => {
@@ -18,6 +16,10 @@ export const SetInformationProject = (item) => {
 
 export const SetInformationService = (item) => {
     localStorage.setItem(localvalue.idService, item);
+}
+
+export const SetInformationMessage = (item) => {
+    localStorage.setItem(localvalue.idMessage, item);
 }
 
 export const VisitCount = () => {

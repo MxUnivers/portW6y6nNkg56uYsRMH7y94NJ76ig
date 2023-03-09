@@ -1,7 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { UpdateProject } from '../../../actions/api/project_action';
+import { LoadAllProjectById, UpdateProject } from '../../../actions/api/project_action';
 import { baseurl } from '../../../configurations/baseUrl';
 import Retour from '../../../configurations/functionList'
 import { localvalue } from '../../../configurations/localvalue';
@@ -17,6 +17,12 @@ const ProjectEditPage = () => {
     const [content, setcontent] = useState("");
     const [visible, setvisible] = useState(true);
     const [video, setvideo] = useState("");
+
+    useEffect(() => {
+        LoadAllProjectById(id,setname,setcoverPicture,setdescription,setdescription,setvisible)
+    }, []);
+    console.log(name)
+    
 
 
     const [Loading, setLoading] = useState();
@@ -103,7 +109,7 @@ const ProjectEditPage = () => {
                             </label>
 
                             <div class="mb-8 bg-gray-100">
-                                <input onChange={HandleFileInputChangePhoto} type="file" accept=".JPEG,.PNG,.JPG" class="sr-only" />
+                                <input onChange={HandleFileInputChangePhoto} id="file" name="file" type="file" accept=".JPEG,.PNG,.JPG" class="sr-only" />
                                 <label
                                     for="file"
                                     class="relative cursor-pointer flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"

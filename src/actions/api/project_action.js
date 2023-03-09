@@ -91,11 +91,11 @@ export const LoadAllProjectById = async (id, name, coverPicture, description, co
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
-            name(response.data.name);
-            coverPicture(response.data.coverPicture);
-            description(response.data.description);
-            content(response.data.content);
-            visible(response.data.visible);
+            name(response.data.data.name);
+            coverPicture(response.data.data.coverPicture);
+            description(response.data.data.description);
+            content(response.data.data.content);
+            visible(response.data.data.visible);
         })
         .catch(function (error) {
             console.log(error);

@@ -1,8 +1,10 @@
 import React from 'react'
 import { AiOutlineFolderView } from 'react-icons/ai';
 import { MdDeleteForever } from 'react-icons/md';
+import { localvalue } from '../../../configurations/localvalue';
 
 const MessageDetailPage = () => {
+  var  id = localStorage.getItem(localvalue.idMessage);
   return (
     <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
       <div class="relative flex flex-wrap  group bg-gray-900 py-5 sm:py-5 px-4  space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">

@@ -141,11 +141,11 @@ export const LoadAllUserById = async (
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
-            username(response.data.username);
-            firstname(response.data.firstname);
-            lastname(response.data.lastname);
-            email(response.data.email);
-            telephone(response.data.telephone);
+            username(response.data.data.username);
+            firstname(response.data.data.firstname);
+            lastname(response.data.data.lastname);
+            email(response.data.data.email);
+            telephone(response.data.data.telephone);
         })
         .catch(function (error) {
             console.log(error);
