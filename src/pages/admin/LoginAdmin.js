@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { AuthUser } from '../../actions/api/authuser_action';
+
 
 const LoginAdmin = () => {
+    const redirect =  useNavigate();
+    
     const [username, setusername] = useState();
     const [password, setpassword] = useState();
+    const [mesageSuccess, setmesageSuccess] = useState("");
+    const [mesageError, setmesageError] = useState("");
 
     //const bg  = "https://images.unsplash.com/photo-1499123785106-343e69e68db1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80"
     const bg = "https://images.pexels.com/photos/2422293/pexels-photo-2422293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
@@ -18,7 +25,10 @@ const LoginAdmin = () => {
                         <h1 class="mb-2 text-2xl">admin site web </h1>
                         <span class="text-gray-300">Entrer information de connexion</span>
                     </div>
-                    <form action="#">
+                    <form onSubmit={(e)=>{
+                        e.preventDefault();
+                        AuthUser(username,password,setmesageError,redirect);
+                    }}>
                         <div class="mb-4 text-lg">
                             <input value={username} onChange={(e)=>{setusername(e.target.value)}} class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="name" placeholder="nom d'utilisateur..." />
                         </div>

@@ -1,4 +1,7 @@
+import axios from "axios";
 import { baseurl } from "../../configurations/baseUrl";
+import { localvalue } from "../../configurations/localvalue";
+import { routing } from "../../configurations/routing";
 
 
 
@@ -19,10 +22,10 @@ export const AuthUser = async (username , password , setState,redirect) => {
     await axios(config)
         .then(function (response) {
             console.log(JSON.stringify(response.data));
-            localStorage.setItem(localvalue.access , `${response.data.key}`);
-            localStorage.setItem(localvalue.namelogin , `${response.data.data.firstname} ${response.data.data.lastname}`);
-            localStorage.setItem(localvalue.idblog , `${response.data.data._id}`);
-            redirect(`/`);
+            localStorage.setItem(localvalue.tokenLogin , `${response.data.key}`);
+            localStorage.setItem(localvalue.nameLogin , `${response.data.data.firstname} ${response.data.data.lastname}`);
+            localStorage.setItem(localvalue.idLogin , `${response.data.data._id}`);
+            redirect(`/${routing.admin}`);
         })
         .catch(function (error) {
             console.log(error);
@@ -44,7 +47,7 @@ export const DiconnectUser = async (id) => {
     await axios(config)
         .then(function (response) {
             console.log(response.data.message);
-            localStorage.removeItem(localvalue.access);
+            localStorage.removeItem(localvalue.tokenLogin);
             window.location.reload();
         })
         .catch(function (error) {

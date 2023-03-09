@@ -18,7 +18,7 @@ const ProjectDelete = () => {
                     <form class="mt-6" onSubmit={
                         (e)=>{
                             e.preventDefault();
-                            DeleteProject(id);
+                            DeleteProject(id, redirect);
                         }
                     }>
                         <div class="flex flex-row space-x-3">

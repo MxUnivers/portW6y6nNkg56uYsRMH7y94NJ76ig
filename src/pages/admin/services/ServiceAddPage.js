@@ -1,11 +1,42 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { CreateNewService } from '../../../actions/api/service_action';
+import { baseurl } from '../../../configurations/baseUrl';
 import Retour from '../../../configurations/functionList'
 
 const ServiceAddPage = () => {
+    const redirect  = useNavigate();
+
     const [name, setname] = useState("");
     const [coverPicture, setcoverPicture] = useState("");
     const [description, setdescription] = useState("");
+
+
+    const [Loading, setLoading] = useState();
+    const convertBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const fileReader = new FileReader(); fileReader.readAsDataURL(file); fileReader.onload = () => { resolve(fileReader.result); };
+        fileReader.onerror = (error) => { reject(error); };
+      });
+    }
+    function uploadSinglePhoto(base64) {
+      setLoading(true);
+      axios.post(`${baseurl.urlapi}/uploadImage`, { image: base64 })
+        .then((res) => { setcoverPicture(res.data); alert("image uploaded Succesfully"); })
+        .then(() => setLoading(false))
+        .catch(console.log);
+    }
+    const HandleFileInputChangePhoto = async (event) => {
+      const files = event.target.files;
+      console.log(files.length);
+      if (files.length === 1) {
+        const base64 = await convertBase64(files[0]);
+        uploadSinglePhoto(base64); return;
+      }
+      const base64s = [];
+      for (var i = 0; i < files.length; i++) { var base = await convertBase64(files[i]); base64s.push(base); }
+    };
     
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
@@ -25,7 +56,7 @@ const ServiceAddPage = () => {
                     <form
                         class="py-6 px-9"
                         onSubmit={(e)=>{
-                            CreateNewService(name,coverPicture,description)
+                            CreateNewService(name,coverPicture,description,redirect)
                         }}
                     >
                         <div class="mb-5">
@@ -50,7 +81,7 @@ const ServiceAddPage = () => {
                             </label>
 
                             <div class="mb-8 bg-gray-100">
-                                <input type="file" name="file" id="file" class="sr-only" />
+                                <input onChange={HandleFileInputChangePhoto} type="file" accept='.JPEG, .PNG,.JPG' class="sr-only" />
                                 <label
                                     for="file"
                                     class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
@@ -69,7 +100,7 @@ const ServiceAddPage = () => {
                                         </span>
                                     </div>
                                 </label>
-                                <img class="h-[100px] w-[100px] rounded-lg" src='https://images.pexels.com/photos/8166778/pexels-photo-8166778.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load' />
+                                <img class="h-[100px] w-[100px] rounded-lg" src={coverPicture} />
                             </div>
 
                             <div class="mb-5">

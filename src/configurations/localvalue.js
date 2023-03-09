@@ -1,5 +1,6 @@
 export const  localvalue = {
     idUser:"idUser",
+    // login
     idLogin : "idLogin",
     nameLogin:"name_Login",
     tokenLogin:"autentificate_login_token_login",

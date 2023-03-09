@@ -1,10 +1,11 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 import { baseurl } from "../../configurations/baseUrl";
+import { routing } from "../../configurations/routing";
 
 
 export const CreateNewProject = async (
-    name, coverPicture, description, content
+    name, coverPicture, description, content, redirect
 ) => {
     var data = JSON.stringify({
         "name": name,
@@ -24,6 +25,8 @@ export const CreateNewProject = async (
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
+            redirect(`/${routing.admin}/${routing.project_list}`);
+
         })
         .catch(function (error) {
             console.log(error);
@@ -33,7 +36,7 @@ export const CreateNewProject = async (
 
 
 
-export const UpdateProject = async (id, name, coverPicture, description, content, visible) => {
+export const UpdateProject = async (id, name, coverPicture, description, content, visible, redirect) => {
     var data = JSON.stringify({
         "name": name,
         "description": description,
@@ -53,6 +56,8 @@ export const UpdateProject = async (id, name, coverPicture, description, content
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
+            redirect(`/${routing.admin}/${routing.project_list}`);
+
         })
         .catch(function (error) {
             console.log(error);
@@ -98,7 +103,7 @@ export const LoadAllProjectById = async (id, name, coverPicture, description, co
 }
 
 
-export const DeleteProject = async (id) => {
+export const DeleteProject = async (id, redirect) => {
     await axios.put(`${baseurl.urlapi}/api/v1/projects/hide/${id}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -106,13 +111,15 @@ export const DeleteProject = async (id) => {
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data.message));
+            redirect(`/${routing.admin}/${routing.project_list}`);
+
         })
         .catch(function (error) {
             console.log(error);
         });
 }
 
-export const RecycleProject = async (id) => {
+export const RecycleProject = async (id, redirect) => {
     await axios.put(`${baseurl.urlapi}/api/v1/projects/show/${id}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -120,6 +127,8 @@ export const RecycleProject = async (id) => {
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data.message));
+            redirect(`/${routing.admin}/${routing.project_list}`);
+
         })
         .catch(function (error) {
             console.log(error);

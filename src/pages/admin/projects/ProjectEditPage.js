@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UpdateProject } from '../../../actions/api/project_action';
+import { baseurl } from '../../../configurations/baseUrl';
 import Retour from '../../../configurations/functionList'
 import { localvalue } from '../../../configurations/localvalue';
 
@@ -15,6 +17,32 @@ const ProjectEditPage = () => {
     const [content, setcontent] = useState("");
     const [visible, setvisible] = useState(true);
     const [video, setvideo] = useState("");
+
+
+    const [Loading, setLoading] = useState();
+    const convertBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const fileReader = new FileReader(); fileReader.readAsDataURL(file); fileReader.onload = () => { resolve(fileReader.result); };
+        fileReader.onerror = (error) => { reject(error); };
+      });
+    }
+    function uploadSinglePhoto(base64) {
+      setLoading(true);
+      axios.post(`${baseurl.urlapi}/uploadImage`, { image: base64 })
+        .then((res) => { setcoverPicture(res.data); alert("image uploaded Succesfully"); })
+        .then(() => setLoading(false))
+        .catch(console.log);
+    }
+    const HandleFileInputChangePhoto = async (event) => {
+      const files = event.target.files;
+      console.log(files.length);
+      if (files.length === 1) {
+        const base64 = await convertBase64(files[0]);
+        uploadSinglePhoto(base64); return;
+      }
+      const base64s = [];
+      for (var i = 0; i < files.length; i++) { var base = await convertBase64(files[i]); base64s.push(base); }
+    };
 
 
 
@@ -35,7 +63,7 @@ const ProjectEditPage = () => {
                     </div>
                     <form onSubmit={(e) => {
                         e.preventDefault();
-                        UpdateProject(id, name, coverPicture, description, content, visible)
+                        UpdateProject(id, name, coverPicture, description, content, visible,redirect)
                     }}
                         class="py-6 px-9"
                     >
@@ -75,7 +103,7 @@ const ProjectEditPage = () => {
                             </label>
 
                             <div class="mb-8 bg-gray-100">
-                                <input type="file" name="file" id="file" accept=".JPEG,.PNG,.JPG" class="sr-only" />
+                                <input onChange={HandleFileInputChangePhoto} type="file" accept=".JPEG,.PNG,.JPG" class="sr-only" />
                                 <label
                                     for="file"
                                     class="relative cursor-pointer flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
@@ -94,7 +122,7 @@ const ProjectEditPage = () => {
                                         </span>
                                     </div>
                                 </label>
-                                <img class="h-[100px] w-[100px] rounded-lg" src='https://images.pexels.com/photos/8166778/pexels-photo-8166778.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load' />
+                                <img class="h-[100px] w-[100px] rounded-lg" src={coverPicture} />
                             </div>
 
                             <div class="mb-5">

@@ -1,10 +1,11 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 import { baseurl } from "../../configurations/baseUrl";
+import { routing } from "../../configurations/routing";
 
 
 export const CreateNewService = async (
-    name,coverPicture,description
+    name,coverPicture,description,redirect
     ) => {
     var data = JSON.stringify({
         "name": name,
@@ -23,6 +24,8 @@ export const CreateNewService = async (
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
+            redirect(`/${routing.admin}/${routing.servicelist}`);
+
         })
         .catch(function (error) {
             console.log(error);
@@ -32,7 +35,7 @@ export const CreateNewService = async (
 
 
 
-export const UpdateService = async (id, name,coverPicture,description, visible) => {
+export const UpdateService = async (id, name,coverPicture,description, visible,redirect) => {
     var data = JSON.stringify({
         "name": name,
         "description": description,
@@ -51,6 +54,7 @@ export const UpdateService = async (id, name,coverPicture,description, visible) 
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             window.location.reload();
+            redirect(`/${routing.admin}/${routing.servicelist}`);
         })
         .catch(function (error) {
             console.log(error);
@@ -95,7 +99,7 @@ export const LoadAllServiceById = async (id,name,coverPicture,description,visibl
 }
 
 
-export const DeleteService = async (id) => {
+export const DeleteService = async (id,redirect) => {
     await axios.put(`${baseurl.urlapi}/api/v1/services/hide/${id}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -103,13 +107,15 @@ export const DeleteService = async (id) => {
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
+            redirect(`/${routing.admin}/${routing.servicelist}`);
+
         })
         .catch(function (error) {
             console.log(error);
         });
 }
 
-export const RecycleService = async (id) => {
+export const RecycleService = async (id,redirect) => {
     await axios.put(`${baseurl.urlapi}/api/v1/services/show/${id}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -117,6 +123,8 @@ export const RecycleService = async (id) => {
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
+            redirect(`/${routing.admin}/${routing.servicelist}`);
+
         })
         .catch(function (error) {
             console.log(error);

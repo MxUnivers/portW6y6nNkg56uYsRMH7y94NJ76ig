@@ -1,9 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { DeleteService } from '../../../actions/api/service_action';
 import Retour from '../../../configurations/functionList'
 import { localvalue } from '../../../configurations/localvalue'
 
 const ServiceDelete = () => {
+    const redirect  = useNavigate();
+
     var id = localStorage.getItem(localvalue.idService);
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
@@ -15,7 +18,7 @@ const ServiceDelete = () => {
                     <form class="mt-6"
                         onSubmit={(e) => {
                             e.preventDefault();
-                            DeleteService(id);
+                            DeleteService(id,redirect);
                         }}
                     >
                         <div class="flex flex-row space-x-3">

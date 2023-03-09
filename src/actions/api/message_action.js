@@ -22,6 +22,7 @@ export const CreateNewMessage = async (
     };
     await axios(config)
         .then(function (response) {
+            alert("Votre message à été envoyé , et sera traiter");
             console.log(JSON.stringify(response.data));
             window.location.reload();
         })

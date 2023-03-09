@@ -67,7 +67,7 @@ const UserListPage = () => {
                                                                 </div>
                                                                 <div>
                                                                     <p class="font-semibold">{`${item.firstname} ${item.lastname}`}</p>
-                                                                    <p class="text-xs text-gray-600 dark:text-gray-400">10x Developer</p>
+                                                                    <p class="text-xs text-gray-600 dark:text-gray-400">{item.username}</p>
                                                                 </div>
                                                             </div>
                                                         </td>
