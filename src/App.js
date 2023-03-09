@@ -7,6 +7,7 @@ import LayoutAdmin from './layout/LayoutAdmin';
 import logo from './logo.svg';
 import AboutUsPage from './pages/AboutUsPage';
 import DashbordPage from './pages/admin/dashbord/DashbordPage';
+import LoginAdmin from './pages/admin/LoginAdmin';
 import MessageArchivePage from './pages/admin/messages/MessageArchivePage';
 import MessageDetailPage from './pages/admin/messages/MessageDetailPage.js';
 import MessageListPage from './pages/admin/messages/MessageListPage';
@@ -44,7 +45,7 @@ function App() {
             <Route path={`${routing.contact}`} element={<ContactPage />} />
             <Route path='*' element={<NotFoundPage/>}/>
           </Route>
-
+          <Route path={`/${routing.loginAccount}`} element={<LoginAdmin/>} />
           {/* administrateur */}
           <Route path={`${routing.admin}`} element={<LayoutAdmin />} >
 
