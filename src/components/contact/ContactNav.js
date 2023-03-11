@@ -1,4 +1,5 @@
 import React from 'react'
+import { bgColor } from '../../configurations/localvalue';
 import NavItem from '../NavItem';
 
 const ContactNav = () => {
@@ -7,11 +8,11 @@ const ContactNav = () => {
 
             <NavItem />
 
-            <div class="container-xxl py-5 bg-primary hero-header mb-5">
+            <div class={`container-xxl py-5 ${bgColor.bg} hero-header mb-5`}>
             <div class="container my-1 py-5 px-lg-5">
             <div class="row g-5 py-5">
                 <div class="col-12 text-center">
-                    <h1 class="text-white animated zoomIn">Contacter nous  !</h1>
+                    <h1 class="text-white animated zoomIn text-3xl">Contacter nous  !</h1>
                     <hr class="bg-white mx-auto mt-0" style={{width: "90px"}}/>
                     
                 </div>

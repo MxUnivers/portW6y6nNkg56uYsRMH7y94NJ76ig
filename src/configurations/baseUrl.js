@@ -1,7 +1,8 @@
 
 
 export const baseurl = {
-    urlapi: "http://localhost:1000",
+    // urlapi: "http://localhost:1000",
+    urlapi: "https://tame-tan-snapper-ring.cyclic.app/",
     // header
     accept: "Application/json",
     contentType: "application/json",

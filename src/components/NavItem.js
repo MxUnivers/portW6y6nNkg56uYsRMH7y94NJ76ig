@@ -1,4 +1,5 @@
 import React from 'react'
+import { bgImg } from '../configurations/localvalue'
 import { routing } from '../configurations/routing'
 
 const NavItem = () => {
@@ -7,9 +8,10 @@ const NavItem = () => {
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0"
         onLoad={()=>{}}
         >
-            <a href="" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fa fa-search me-2"></i>SEO<span class="fs-5">Master</span></h1>
-                <img src="img/logo.png" alt="Logo" />
+            <a href={`/`} class="navbar-brand p-0 ">
+                <h1 class="m-0 flex flex-row space-x-2 justify-center items-center"><img src={`${bgImg.logo}`} class="rounded-[50%]" alt="Logo" /> 
+                <span class="fs-5">Aymar-mxunivers</span>
+                </h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>

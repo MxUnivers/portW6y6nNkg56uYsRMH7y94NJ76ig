@@ -1,5 +1,6 @@
 import { localvalue } from "./localvalue";
 
+// retour
 const Retour = () => {
     window.history.back();
 }
@@ -10,18 +11,22 @@ export const SetInformationUser = (item) => {
     localStorage.setItem(localvalue.idUser, item);
 }
 
+// project
 export const SetInformationProject = (item) => {
     localStorage.setItem(localvalue.idProject, item);
 }
 
+// service
 export const SetInformationService = (item) => {
     localStorage.setItem(localvalue.idService, item);
 }
 
+// message
 export const SetInformationMessage = (item) => {
     localStorage.setItem(localvalue.idMessage, item);
 }
 
+// visite count
 export const VisitCount = () => {
     // Vérifie si le navigateur prend en charge localStorage
     if (typeof (Storage) !== "undefined") {

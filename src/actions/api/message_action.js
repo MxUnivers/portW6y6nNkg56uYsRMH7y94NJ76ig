@@ -4,11 +4,12 @@ import { baseurl } from "../../configurations/baseUrl";
 
 
 export const CreateNewMessage = async (
-    name, email, subject, content
+    name, email,telephone, subject, content
 ) => {
     var data = JSON.stringify({
         "name": name,
         "email": email,
+        "telephone": telephone,
         "subject": subject,
         "content": content,
     });
@@ -94,7 +95,7 @@ export const LoadAllMessagesArchive = async (SetState) => {
         });
 }
 
-export const LoadAllMessageById = async (id,name, email, subject, content) => {
+export const LoadAllMessageById = async (id,name, email,telephone, subject, content) => {
     await axios.get(`${baseurl.urlapi}/api/v1/messages/${id}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -102,10 +103,11 @@ export const LoadAllMessageById = async (id,name, email, subject, content) => {
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
-            name(response.data.name);
-            email(response.data.coverPicture);
-            subject(response.data.description);
-            content(response.data.content);
+            name(response.data.data.name);
+            email(response.data.data.email);
+            telephone(response.data.data.telephone);
+            subject(response.data.data.subject);
+            content(response.data.data.content);
         })
         .catch(function (error) {
             console.log(error);

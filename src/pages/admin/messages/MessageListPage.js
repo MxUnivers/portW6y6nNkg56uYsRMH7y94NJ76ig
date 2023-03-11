@@ -47,9 +47,9 @@ const MessageListPage = () => {
                                                     `}
                                                 </p>
                                                 <p class=" flex space-x-2 text-white/50 py-1 px-3 rounded-lg">
-                                                    <a href={`/${routing.admin}/${routing.message_view}/:id`} class="bg-lime-500 hover:bg-lime-600 active:bg-lime-700 py-1 px-2 rounded-lg text-white"
+                                                    <a href={`/${routing.admin}/${routing.message_view}/${item._id}`} class="bg-lime-500 hover:bg-lime-600 active:bg-lime-700 py-1 px-2 rounded-lg text-white"
                                                     onClick={SetInformationMessage(item._id)}><AiOutlineFolderView class="h-7 w-7" /></a>
-                                                    <a href={`/${routing.admin}/${routing.message_delete}/:id`} class="bg-red-500 hover:bg-red-600 active:bg-red-700 py-1 px-2 rounded-lg text-white"
+                                                    <a href={`/${routing.admin}/${routing.message_delete}/${item._id}`} class="bg-red-500 hover:bg-red-600 active:bg-red-700 py-1 px-2 rounded-lg text-white"
                                                     onClick={SetInformationMessage(item._id)}><MdDeleteForever class="h-7 w-7" /></a>
                                                 </p>
                                             </div>
