@@ -16,7 +16,7 @@ const ContactForm = () => {
                     <div class="col-lg-7 ">
                         <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
                             <h6 class="position-relative d-inline text-primary ps-4"></h6>
-                            <h2 class="mt-2 text-3xl ">Faite nous part de votre demander  </h2>
+                            <h2 class="mt-2 text-3xl ">Faite nous part de votre demande  </h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
                             <form 
