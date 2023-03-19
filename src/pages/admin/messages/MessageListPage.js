@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { routing } from '../../../configurations/routing';
 import { AiOutlineFolderView, AiOutlineMessage, AiOutlineStop } from 'react-icons/ai';
 import { MdDeleteForever } from 'react-icons/md';
@@ -8,7 +8,10 @@ import { SetInformationMessage } from '../../../configurations/functionList';
 
 const MessageListPage = () => {
     const [messagelist, setmessagelist] = useState([]);
+    useEffect (() => {
     LoadAllMessages(setmessagelist);
+    }, [])
+    
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
@@ -48,9 +51,9 @@ const MessageListPage = () => {
                                                 </p>
                                                 <p class=" flex space-x-2 text-white/50 py-1 px-3 rounded-lg">
                                                     <a href={`/${routing.admin}/${routing.message_view}/${item._id}`} class="bg-lime-500 hover:bg-lime-600 active:bg-lime-700 py-1 px-2 rounded-lg text-white"
-                                                    onClick={SetInformationMessage(item._id)}><AiOutlineFolderView class="h-7 w-7" /></a>
+                                                    onClick={()=>SetInformationMessage(String(item._id))}><AiOutlineFolderView class="h-7 w-7" /></a>
                                                     <a href={`/${routing.admin}/${routing.message_delete}/${item._id}`} class="bg-red-500 hover:bg-red-600 active:bg-red-700 py-1 px-2 rounded-lg text-white"
-                                                    onClick={SetInformationMessage(item._id)}><MdDeleteForever class="h-7 w-7" /></a>
+                                                    onClick={SetInformationMessage(String(item._id))}><MdDeleteForever class="h-7 w-7" /></a>
                                                 </p>
                                             </div>
                                             <p class="absolute top-2 right-3 text-gray-200 inline-flex items-center text-xs"> message<span class="ml-2 w-2 h-2 block bg-green-500 rounded-full group-hover:animate-pulse"></span></p>

@@ -84,15 +84,15 @@ const UserListPage = () => {
                                                         </td>
                                                         <td class="px-4 py-3 text-sm space-x-1">
                                                             <a href={`/${routing.admin}/${routing.userlist}/${routing.useredit}/:id`} class="text-green-200  px-3 rounded-lg underline"
-                                                                onClick={SetInformationUser(item._id)}>
+                                                                onClick={SetInformationUser(String(item._id))}>
                                                                 edit
                                                             </a>
                                                             <a href={`/${routing.admin}/${routing.userlist}/${routing.userpaswword}/:id`} class=" text-gray-400 py-2 px-3 underline"
-                                                                onClick={SetInformationUser(item._id)}>
+                                                                onClick={SetInformationUser(String(item._id))}>
                                                                 password
                                                             </a>
                                                             <a href={`/${routing.admin}/${routing.userlist}/${routing.userdelete}/:id`} class="text-red-300 py-2 px-3 rounded-lg underline"
-                                                                onClick={SetInformationUser(item._id)}>
+                                                                onClick={SetInformationUser(String(item._id))}>
                                                                 delete
                                                             </a>
                                                         </td>

@@ -116,13 +116,15 @@ export const LoadAllMessageById = async (id,name, email,telephone, subject, cont
 
 
 export const DeleteMessage = async (id) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/messages/hide/${id}`, {
+    await axios.delete(`${baseurl.urlapi}/api/v1/messages/delete/${id}`, {
         headers: {
             'Content-Type': 'application/json',
+            "Authorization":`${baseurl.tokenType} ${baseurl.authorization}`
         }
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data.message));
+            window.history.back();
         })
         .catch(function (error) {
             console.log(error);

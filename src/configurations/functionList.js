@@ -51,3 +51,7 @@ export const VisitCount = () => {
         document.write("Désolé, votre navigateur ne prend pas en charge le stockage local.");
     }
 }
+
+
+
+

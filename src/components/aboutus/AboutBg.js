@@ -15,7 +15,6 @@ const AboutBg = () => {
                             Qui somme sommes nous ?
                         </h2>
                         <h4 class="mb-6 text-xl font-semibold text-white">
-                            It is a coastal town in Italy that is part of Rome
                         </h4>
                         <button
                             type="button"

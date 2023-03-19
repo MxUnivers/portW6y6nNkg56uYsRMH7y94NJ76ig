@@ -51,10 +51,10 @@ const ServiceListPage = () => {
                       <h4 class="text-white text-2xl font-bold capitalize text-center">{item.name}</h4>
                       <p class=" flex space-x-2 text-white/50">
                         <a href={`/${routing.admin}/${routing.serviceedit}/:id`} class="bg-lime-500 hover:bg-lime-600 active:bg-lime-700 py-1 px-2 rounded-lg text-white"
-                          onClick={SetInformationService(item._id)}>
+                          onClick={SetInformationService(String(item._id))}>
                           edit</a>
                         <a href={`/${routing.admin}/${routing.servicedelete}/:id`} class="bg-red-500 hover:bg-red-600 active:bg-red-700 py-1 px-2 rounded-lg text-white"
-                          onClick={SetInformationService(item._id)}>
+                          onClick={SetInformationService(String(item._id))}>
                           delete</a>
                       </p>
                       <p class="absolute top-2 text-white/20 inline-flex items-center text-xs">service <span class="ml-2 w-2 h-2 block bg-green-500 rounded-full group-hover:animate-pulse"></span></p>
