@@ -2,6 +2,10 @@ import React from 'react'
 import { DiconnectUser } from '../../actions/api/authuser_action';
 import { localvalue } from '../../configurations/localvalue'
 import { routing } from '../../configurations/routing'
+import {FaArchive, FaUserAlt} from  "react-icons/fa";
+import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
+import { RiCustomerService2Fill } from 'react-icons/ri';
+
 
 const SidebarAdmin = () => {
     var id  =  localStorage.getItem(localvalue.idLogin);
@@ -59,7 +63,7 @@ const SidebarAdmin = () => {
                     <li>
                         <a href={`/${routing.admin}/${routing.servicelist}`} class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                             <span class="inline-flex justify-center items-center ml-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            <RiCustomerService2Fill  class="h-5 w-5" />   
                             </span>
                             <span class="ml-2 text-sm tracking-wide truncate">services</span>
                         </a>
@@ -67,7 +71,7 @@ const SidebarAdmin = () => {
                     <li>
                         <a href={`/${routing.admin}/${routing.project_list}`} class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                             <span class="inline-flex justify-center items-center ml-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                <AiOutlineFundProjectionScreen  class="h-5 w-5" />
                             </span>
                             <span class="ml-2 text-sm tracking-wide truncate">projets</span>
                         </a>
@@ -75,7 +79,7 @@ const SidebarAdmin = () => {
                     <li>
                         <a href={`/${routing.admin}/${routing.userlist}`} class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                             <span class="inline-flex justify-center items-center ml-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            <FaUserAlt  class="h-5 w-5"/>
                             </span>
                             <span class="ml-2 text-sm tracking-wide truncate">utilisateurs</span>
                         </a>
@@ -90,6 +94,15 @@ const SidebarAdmin = () => {
                                 </svg>
                             </span>
                             <span class="ml-2 text-sm tracking-wide truncate">Settings</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href={`/${routing.admin}/${routing.ariches}`} class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                            <span class="inline-flex justify-center items-center ml-4">
+                                <FaArchive  class="h-5 w-5"/>
+                            </span>
+                            <span class="ml-2 text-sm tracking-wide truncate">Archives</span>
                         </a>
                     </li>
 

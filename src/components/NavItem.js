@@ -1,9 +1,13 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
 import { bgImg } from '../configurations/localvalue'
 import { routing } from '../configurations/routing'
 
 const NavItem = () => {
     
+    useEffect(() => {
+        axios.post('/api/v1/visit');
+      }, []);
     return (
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0"
         onLoad={()=>{}}

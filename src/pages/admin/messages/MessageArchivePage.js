@@ -5,9 +5,7 @@ import { localvalue } from '../../../configurations/localvalue';
 
 const MessageArchivePage = () => {
     var id = localStorage.getItem(localvalue.idMessage);
-    alert(id);
-    console.log(id);
-
+    
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 

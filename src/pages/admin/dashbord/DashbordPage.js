@@ -1,9 +1,20 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import DashboardItem1 from '../../../components/admin/dashboard/DashboardItem1';
 import NavbarAdmin from '../../../components/admin/NavbarAdmin';
 import SidebarAdmin from '../../../components/admin/SidebarAdmin';
 
 const DashbordPage = () => {
+
+    const [nbVisits, setNbVisits] = useState(0);
+
+    useEffect(() => {
+      axios.get('/api/nbVisits')
+        .then(response => setNbVisits(response.data.nbVisits))
+        .catch(error => console.error(error));
+    }, []);
+
+
     return (
 
 

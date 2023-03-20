@@ -80,7 +80,7 @@ export const LoadAllMessages = async (SetState) => {
         });
 }
 
-export const LoadAllMessagesArchive = async (SetState) => {
+export const LoadAllMessagesArchives = async (SetState) => {
     await axios.get(`${baseurl.urlapi}/api/v1/messages/get/all/archives`, {
         headers: {
             'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ export const DeleteMessage = async (id) => {
 }
 
 export const RecycleMessage = async (id) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/messages/show/${id}`, {
+    await axios.delete(`${baseurl.urlapi}/api/v1/messages/show/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         }

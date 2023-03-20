@@ -55,5 +55,7 @@ export const  routing  =  {
     // activtés de connexion de l'administration du site website
     loginAccount:"connexion-admin",
     createAccount:"create-account-admin",
-    forgetPassowrd:"forget-password-admin"
+    forgetPassowrd:"forget-password-admin",
+    // arcihes
+    ariches:"tous-les-arcihes"
 }

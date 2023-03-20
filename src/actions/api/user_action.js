@@ -132,6 +132,22 @@ export const LoadAllUsers = async (SetState) => {
         });
 }
 
+export const LoadAllUsersArchives = async (SetState) => {
+    await axios.get(`${baseurl.urlapi}/api/v1/users/get/all/archives`, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            SetState(response.data.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
 export const LoadAllUserById = async (
     id, username, firstname, lastname, email, telephone) => {
     await axios.get(`${baseurl.urlapi}/api/v1/users/${id}`, {

@@ -6,6 +6,7 @@ import Layout from './layout/Layout';
 import LayoutAdmin from './layout/LayoutAdmin';
 import logo from './logo.svg';
 import AboutUsPage from './pages/AboutUsPage';
+import ArchivesPage from './pages/admin/archives/ArchivesPage';
 import DashbordPage from './pages/admin/dashbord/DashbordPage';
 import LoginAdmin from './pages/admin/LoginAdmin';
 import MessageArchivePage from './pages/admin/messages/MessageArchivePage';
@@ -79,6 +80,7 @@ function App() {
 
               {/* Paramètre des pages */}
              <Route path={`${routing.parameter_page}`} element={<SettingPage />} />
+             <Route path={`${routing.ariches}`} element={<ArchivesPage />} />
 
              <Route path='*' element={<NotFoundPage/>}/>
 

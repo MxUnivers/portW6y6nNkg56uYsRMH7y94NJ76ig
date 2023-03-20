@@ -8,6 +8,7 @@ const ServiceDelete = () => {
     const redirect  = useNavigate();
 
     var id = localStorage.getItem(localvalue.idService);
+
     return (
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 

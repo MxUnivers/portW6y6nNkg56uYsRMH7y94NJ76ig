@@ -21,7 +21,6 @@ const ProjectEditPage = () => {
     useEffect(() => {
         LoadAllProjectById(id,setname,setcoverPicture,setdescription,setdescription,setvisible)
     }, []);
-    console.log(name)
     
 
 

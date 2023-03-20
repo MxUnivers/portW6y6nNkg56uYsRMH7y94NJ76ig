@@ -11,6 +11,7 @@ const ServiceEditPage = () => {
 
     var id = localStorage.getItem(localvalue.idService);
     
+    
     const [name, setname] = useState("");
     const [coverPicture, setcoverPicture] = useState("");
     const [description, setdescription] = useState("");

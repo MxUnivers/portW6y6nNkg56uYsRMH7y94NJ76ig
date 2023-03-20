@@ -80,6 +80,23 @@ export const LoadAllServices = async (SetState) => {
         });
 }
 
+// Charger Archives
+export const LoadAllServicesArchives = async (SetState) => {
+    await axios.get(`${baseurl.urlapi}/api/v1/services/get/all/archives`, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            SetState(response.data.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
 export const LoadAllServiceById = async (id,name,coverPicture,description,visible) => {
     await axios.get(`${baseurl.urlapi}/api/v1/services/${id}`, {
         headers: {

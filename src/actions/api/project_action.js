@@ -83,6 +83,23 @@ export const LoadAllProjects = async (SetState) => {
         });
 }
 
+
+export const LoadAllProjectsArchives = async (SetState) => {
+    await axios.get(`${baseurl.urlapi}/api/v1/projects/get/all/archives`, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            SetState(response.data.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
 export const LoadAllProjectById = async (id, name, coverPicture, description, content, visible) => {
     await axios.get(`${baseurl.urlapi}/api/v1/projects/${id}`, {
         headers: {
