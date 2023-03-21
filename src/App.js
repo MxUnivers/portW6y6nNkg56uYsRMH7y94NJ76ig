@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { routing } from './configurations/routing';
 import Layout from './layout/Layout';
 import LayoutAdmin from './layout/LayoutAdmin';
-import logo from './logo.svg';
 import AboutUsPage from './pages/AboutUsPage';
 import ArchivesPage from './pages/admin/archives/ArchivesPage';
 import DashbordPage from './pages/admin/dashbord/DashbordPage';
@@ -30,6 +29,7 @@ import ContactPage from './pages/ContactPage';
 import LandingPage from './pages/LandingPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProjectPage from './pages/ProjectPage';
+import ProjectSinglePage from './pages/ProjectSinglePage';
 import ServicePage from './pages/ServicePage';
 
 function App() {
@@ -43,6 +43,7 @@ function App() {
             <Route path={`${routing.aboutus}`} element={<AboutUsPage />} />
             <Route path={`${routing.services}`} element={<ServicePage />} />
             <Route path={`${routing.project}`} element={<ProjectPage />} />
+            <Route path={`:id`} element={<ProjectSinglePage />} />
             <Route path={`${routing.contact}`} element={<ContactPage />} />
             <Route path='*' element={<NotFoundPage/>}/>
           </Route>

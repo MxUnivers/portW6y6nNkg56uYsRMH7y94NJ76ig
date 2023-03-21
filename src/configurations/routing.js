@@ -4,6 +4,7 @@ export const  routing  =  {
     aboutus:"a-propos-de-nous",
     services:"nos-services",
     project:"nos-projets",
+    projetSingle:"project-single",
     contact:"contacter-nous",
 
     // *******************************  administration du site *******************************/

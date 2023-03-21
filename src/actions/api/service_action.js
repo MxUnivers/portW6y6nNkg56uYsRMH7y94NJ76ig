@@ -117,9 +117,10 @@ export const LoadAllServiceById = async (id,name,coverPicture,description,visibl
 
 
 export const DeleteService = async (id,redirect) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/services/hide/${id}`, {
+    await axios.delete(`${baseurl.urlapi}/api/v1/services/hide/${id}`, {
         headers: {
             'Content-Type': 'application/json',
+            'Authorization':`Bearer ${baseurl.authorization}`
         }
     })
         .then(function (response) {
@@ -132,14 +133,15 @@ export const DeleteService = async (id,redirect) => {
 }
 
 export const RecycleService = async (id,redirect) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/services/show/${id}`, {
+    await axios.delete(`${baseurl.urlapi}/api/v1/services/show/${id}`, {
         headers: {
             'Content-Type': 'application/json',
+            'Authorization':`Bearer ${baseurl.authorization}`
         }
     })
         .then(function (response) {
             console.log(JSON.stringify(response.data));
-            redirect(`/${routing.admin}/${routing.servicelist}`);
+            redirect(`/${routing.admin}/${routing.ariches}`);
 
         })
         .catch(function (error) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { MdOutlineLockClock } from 'react-icons/md';
-import { DeleteMessage, LoadAllMessagesArchives, RecycleMessage } from '../../actions/api/message_action';
+import { DeleteMessage, LoadAllMessagesArchives, RecycleMessage } from '../../../actions/api/message_action';
 
 const MessagesArchives = () => {
     const [messagelist, setmessagelist] = useState([]);

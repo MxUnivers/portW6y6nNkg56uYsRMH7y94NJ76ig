@@ -13,6 +13,7 @@ const ProjectAddPage = () => {
     const [coverPicture, setcoverPicture] = useState("");
     const [description, setdescription] = useState("");
     const [content, setcontent] = useState("");
+    const [link, setlink] = useState("")
     const [video, setvideo] = useState("");
 
     const [Loading, setLoading] = useState();
@@ -60,7 +61,7 @@ const ProjectAddPage = () => {
                         class="py-6 px-9"
                         onSubmit={(e)=>{
                             e.preventDefault();
-                            CreateNewProject(name,coverPicture,description, content, redirect);
+                            CreateNewProject(name,coverPicture,description, content,link, redirect);
                         }}
                     >
                         <div class="mb-5">
@@ -106,6 +107,18 @@ const ProjectAddPage = () => {
                                 <img class="h-[100px] w-[100px] rounded-lg" src={coverPicture} />
                             </div>
 
+                            <div class="mb-5">
+                                <label
+                                    class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                                >
+                                    Description du service  :
+                                </label>
+                                <input type={"url"}
+                                value={link} onChange={(e)=>{setlink(e.target.value)}}
+                                 placeholder="https://....."
+                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+                            </div>
                             <div class="mb-5">
                                 <label
                                     class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"

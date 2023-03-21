@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { LoadAllProjects } from '../../actions/api/project_action';
+import { LoadAllProjectById, LoadAllProjects } from '../../actions/api/project_action';
+import { SetInformationProject } from '../../configurations/functionList';
+import { localvalue } from '../../configurations/localvalue';
+import { routing } from '../../configurations/routing';
 import LoaderItems from '../LoaderItems';
 
 const ProjectList = () => {
+    var  id  = localStorage.getItem(`${localvalue.idProject}`);
     const [projectlist, setprojectlist] = useState([]);
     useEffect(() => {
         LoadAllProjects(setprojectlist);
@@ -42,7 +46,11 @@ const ProjectList = () => {
                                                     <a class="btn btn-light" href={item.coverPicture} data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                                     <div class="mt-auto">
                                                         <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                                        <a class="h5 d-block text-white mt-1 mb-0" href="">{item.name}</a>
+                                                        <a class="h5 d-block text-white mt-1 mb-0" href={`/${String(item.name).replaceAll(" ","-")}`}
+                                                        onClick={()=>{
+                                                            SetInformationProject(String(item._id))
+                                                        }}
+                                                        >{item.name}</a>
                                                     </div>
                                                 </div>
                                             </div>

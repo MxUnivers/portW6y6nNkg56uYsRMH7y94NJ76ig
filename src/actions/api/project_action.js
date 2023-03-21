@@ -5,13 +5,14 @@ import { routing } from "../../configurations/routing";
 
 
 export const CreateNewProject = async (
-    name, coverPicture, description, content, redirect
+    name, coverPicture, description, content,link, redirect
 ) => {
     var data = JSON.stringify({
         "name": name,
         "coverPicture": coverPicture,
         "description": description,
         "content": content,
+        "link":link
     });
     var config = {
         method: 'post',
@@ -36,13 +37,14 @@ export const CreateNewProject = async (
 
 
 
-export const UpdateProject = async (id, name, coverPicture, description, content, visible, redirect) => {
+export const UpdateProject = async (id, name, coverPicture, description, content,link, visible, redirect) => {
     var data = JSON.stringify({
         "name": name,
         "description": description,
         "coverPicture": coverPicture,
         "content": content,
-        "visible": visible
+        "visible": visible,
+        "link":link
     });
     var config = {
         method: 'put',
@@ -100,7 +102,7 @@ export const LoadAllProjectsArchives = async (SetState) => {
 }
 
 
-export const LoadAllProjectById = async (id, name, coverPicture, description, content, visible) => {
+export const LoadAllProjectById = async (id, name, coverPicture, description, content, link, visible) => {
     await axios.get(`${baseurl.urlapi}/api/v1/projects/${id}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -112,6 +114,7 @@ export const LoadAllProjectById = async (id, name, coverPicture, description, co
             coverPicture(response.data.data.coverPicture);
             description(response.data.data.description);
             content(response.data.data.content);
+            link(response.data.data.link);
             visible(response.data.data.visible);
         })
         .catch(function (error) {
@@ -121,7 +124,7 @@ export const LoadAllProjectById = async (id, name, coverPicture, description, co
 
 
 export const DeleteProject = async (id, redirect) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/projects/hide/${id}`, {
+    await axios.delete(`${baseurl.urlapi}/api/v1/projects/hide/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -137,7 +140,7 @@ export const DeleteProject = async (id, redirect) => {
 }
 
 export const RecycleProject = async (id, redirect) => {
-    await axios.put(`${baseurl.urlapi}/api/v1/projects/show/${id}`, {
+    await axios.delete(`${baseurl.urlapi}/api/v1/projects/show/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         }

@@ -16,10 +16,11 @@ const ProjectEditPage = () => {
     const [description, setdescription] = useState("");
     const [content, setcontent] = useState("");
     const [visible, setvisible] = useState(true);
+    const [link, setlink] = useState("");
     const [video, setvideo] = useState("");
 
     useEffect(() => {
-        LoadAllProjectById(id,setname,setcoverPicture,setdescription,setdescription,setvisible)
+        LoadAllProjectById(id,setname,setcoverPicture,setdescription,setdescription,setlink,setvisible)
     }, []);
     
 
@@ -68,7 +69,7 @@ const ProjectEditPage = () => {
                     </div>
                     <form onSubmit={(e) => {
                         e.preventDefault();
-                        UpdateProject(id, name, coverPicture, description, content, visible,redirect)
+                        UpdateProject(id, name, coverPicture, description, content,link, visible,redirect)
                     }}
                         class="py-6 px-9"
                     >
@@ -130,6 +131,18 @@ const ProjectEditPage = () => {
                                 <img class="h-[100px] w-[100px] rounded-lg" src={coverPicture} />
                             </div>
 
+                            <div class="mb-5">
+                                <label
+                                    class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
+                                >
+                                    lien du projet  :
+                                </label>
+                                <input type={"url"}
+                                value={link} onChange={(e)=>{setlink(e.target.value)}}
+                                 placeholder="https://....."
+                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+                            </div>
                             <div class="mb-5">
                                 <label
                                     class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
