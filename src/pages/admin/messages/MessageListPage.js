@@ -36,7 +36,7 @@ const MessageListPage = () => {
                                     return (
                                         <div class="relative flex flex-wrap  group bg-gray-900 py-5 sm:py-5 px-4  space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
                                             <div class="flex flex-wrap space-x-3">
-                                                <img class="w-20 h-20 object-cover object-center rounded-full" src="https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="cuisine" />
+                                                <img class="w-20 h-20 object-cover object-center rounded-full" src="https://cdn-icons-png.flaticon.com/512/5356/5356190.png" alt="cuisine" />
                                                 <div>
                                                     <h2 class=" font-bold">{item.name}</h2>
                                                     <p>{item.email}</p>

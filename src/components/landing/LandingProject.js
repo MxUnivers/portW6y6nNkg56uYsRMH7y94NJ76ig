@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { LoadAllProjects } from '../../actions/api/project_action';
+import { SetInformationProject } from '../../configurations/functionList';
 import LoaderItems from '../LoaderItems';
 
 const LandingProject = () => {
@@ -36,7 +37,11 @@ const LandingProject = () => {
                                                     <a class="btn btn-light" href={item.coverPicture} data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                                     <div class="mt-auto">
                                                         <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                                        <a class="h5 d-block text-white mt-1 mb-0" href="">{item.name}</a>
+                                                        <a href={`/${String(item.name).replaceAll(" ","-")}`} class="h5 d-block text-white mt-1 mb-0"
+                                                            onClick={() => {
+                                                                SetInformationProject(String(item._id))
+                                                            }}
+                                                        >{item.name}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -46,8 +51,8 @@ const LandingProject = () => {
 
                             ) :
                             (
-                            <LoaderItems/>
-                        )
+                                <LoaderItems />
+                            )
 
                     }
 
