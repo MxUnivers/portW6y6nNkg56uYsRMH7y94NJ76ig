@@ -28,8 +28,8 @@ export const bgColor= {
 }
 export const bgImg = {
     // page de garde 
-    landingBg1:"img/bglanding.jpg",
-    landingBg2:"img/creativté.jpg",
+    landingBg1:"img/accueil/bg_img_accueil.jpg",
+    landingBg2:"img/accueil/belle-femme-brune-restant-son-lieu-travail.jpg",
     landingBg3:"img/18771.jpg",
      contact:"img/contact.jpg",
      message:"https://img.freepik.com/photos-gratuite/icone-bouton-mail-vert-isole_53876-65530.jpg?w=740&t=st=1678533022~exp=1678533622~hmac=26a94c720848915fc51ac94fc52c3343ec8af514c487c813532c14e42c1618c0",

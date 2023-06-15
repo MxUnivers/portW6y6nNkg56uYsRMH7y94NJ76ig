@@ -33,7 +33,7 @@ const LoaderItems = () => {
         <p
           class="absolute mx-auto inset-x-0 my-auto inset-y-[80px] text-base font-medium text-gray-800 text-center"
         >
-          Loading ...
+          Chargement
         </p>
       </div>
     </div>
