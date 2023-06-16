@@ -4,7 +4,7 @@ import LandingImageBg from './LandingImageBg';
 
 const LandingBg = () => {
     return (
-        <div class="container-xxl position-relative p-0">
+        <div class="container-xxl  position-relative p-0">
             <NavItem />
             <LandingImageBg />
         </div>

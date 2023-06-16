@@ -24,11 +24,11 @@ export const  localvalue = {
 }
 
 export const bgColor= {
-    bg:"bg-blue-700 ",
+    bg:"bg-blue-900/100 ",
 }
 export const bgImg = {
     // page de garde 
-    landingBg1:"img/accueil/bg_img_accueil.jpg",
+    landingBg1:"img/bg_img_home.png",
     landingBg2:"img/accueil/belle-femme-brune-restant-son-lieu-travail.jpg",
     landingBg3:"img/18771.jpg",
      contact:"img/contact.jpg",

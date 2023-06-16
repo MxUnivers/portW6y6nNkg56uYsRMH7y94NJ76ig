@@ -6,6 +6,7 @@ import LandingScreem from '../components/landing/LandingScreem';
 import LandingService from '../components/landing/LandingService';
 import LandingStarted from '../components/landing/LandingStarted';
 import LandingTestimonial from '../components/landing/LandingTestimonial';
+import Footer from '../components/Footer';
 
 const LandingPage = () => {
   return (
@@ -17,6 +18,7 @@ const LandingPage = () => {
       <LandingService/>
       <LandingProject/>
       <LandingTestimonial/>
+      <Footer/>
     </>
   )
 }

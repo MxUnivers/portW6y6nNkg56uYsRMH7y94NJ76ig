@@ -4,7 +4,7 @@ import { routing } from '../../configurations/routing';
 
 const LandingImageBg = () => {
   return (
-    <div class={`container-xxl py-5 ${bgColor.bg} hero-header mb-5`}>
+    <div class={`container-xxl py-5 ${bgColor.bg} rounded-b-[30%] hero-header mb-5`} >
       <div class="container my-5 py-5 px-lg-5">
         <div class="row g-5 py-5">
           <div class="col-lg-6 text-center text-lg-start">

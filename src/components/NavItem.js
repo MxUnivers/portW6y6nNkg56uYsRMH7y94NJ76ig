@@ -14,7 +14,7 @@ const NavItem = () => {
         >
             <a href={`/`} class="navbar-brand p-0 ">
                 <h1 class="m-0 flex flex-row space-x-2 justify-center items-center"><img src={`${bgImg.logo}`} class="rounded-[50%]" alt="Logo" /> 
-                <span class="fs-5">Aymar-mxunivers</span>
+                <span class="fs-5 font-sans">MxUnivers</span>
                 </h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -28,7 +28,8 @@ const NavItem = () => {
                     <a href={`/${routing.project}`} class="nav-item nav-link">Projects</a>
                     
                 </div>
-                <butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                {/*<butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                 */}
                 <a href={`/${routing.contact}`} class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Contacter nous </a>
             </div>
         </nav>

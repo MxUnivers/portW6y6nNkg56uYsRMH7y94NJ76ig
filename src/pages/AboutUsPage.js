@@ -13,8 +13,10 @@ const AboutUsPage = () => {
          <AboutNav/>
          <AboutComponent title={"En savoir plus sur moi "}/>
          <AboutProject/>
-         <AboutTestimonial/>
-         <AboutTeam/>
+         {
+            /*<AboutTestimonial/> */
+         }
+         {/*<AboutTeam/> */}
         </>
     )
 }

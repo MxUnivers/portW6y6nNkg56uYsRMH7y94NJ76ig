@@ -4,7 +4,7 @@ import { bgImg } from '../../configurations/localvalue'
 const AboutBg = () => {
     return (
         <div
-            class="relative h-96 overflow-hidden bg-cover bg-no-repeat p-12 text-center lg:h-[400px]"
+            class="relative h- rounded-br-full rounded-b-3xl overflow-hidden bg-cover bg-no-repeat p-12 text-center lg:h-[400px]"
             style={{backgroundImage: `url('${bgImg.landingBg1}')`}}>
             <div
                 class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-gradient-to-t from-bg-blue-400 to-transparent"

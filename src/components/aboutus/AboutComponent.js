@@ -30,7 +30,7 @@ const AboutComponent = (props) => {
 
     const stepsGepac = [
         {
-            title: "Developpement d'application",
+            title: "Developpement d'application web et mobile",
             coverPicture: "img/developpement_application.jpg",
             description1: `Transformez vos idées en réalité numérique avec notre expertise en développement d'applications mobiles et web`,
             elements: [],
