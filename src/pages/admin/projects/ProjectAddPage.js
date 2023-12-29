@@ -111,9 +111,9 @@ const ProjectAddPage = () => {
                                 <label
                                     class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
                                 >
-                                    Description du service  :
+                                    Lien du projet  :
                                 </label>
-                                <input type={"url"}
+                                <input type={"text"}
                                 value={link} onChange={(e)=>{setlink(e.target.value)}}
                                  placeholder="https://....."
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"

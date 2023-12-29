@@ -11,7 +11,7 @@ const LandingImageBg = () => {
             <h1 class="text-white mb-4 animated text-4xl font-thin fadeInUp">Explorez l{"'"}Excellence et la Créativité à travers mon Portfolio .</h1>
             <p class="text-white pb-3 animated fadeInUp">Bienvenue dans mon univers numérique où l'engagement envers l'excellence rencontre la passion pour la création.</p>
             <a href={`/${routing.project}`} class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated fadeInLeft">Découvrir mes Projets</a>
-            <a href={`/${routing.contact}`} class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated fadeInRight">Contactez-moi dès maintenant</a>
+            <a href={`/${routing.contact}`} class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated fadeInRight">Contactez-nous dès maintenant</a>
           </div>
           <div class="col-lg-6 text-center text-lg-start">
             <img class="img-fluid rounded-2xl" src={`${bgImg.landingBg1}`} alt="" />
