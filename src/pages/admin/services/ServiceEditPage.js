@@ -88,15 +88,14 @@ const ServiceEditPage = () => {
                         </div>
                         <div class="mb-5">
                             <label
-                                for="email"
+                                for="texte"
                                 class="text-gray-100 mb-3 block text-base font-medium text-[#07074D]"
                             >
                                 Nom du service  :
                             </label>
                             <input value={name} onChange={(e) => { setname(e.target.value) }}
-                                type="email"
-                                name="email"
-                                id="email"
+                                type="text"
+                                
                                 placeholder="nom du service"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             />

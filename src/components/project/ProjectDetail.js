@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { LoadAllProjectById, LoadAllProjectByTtitle } from '../../actions/api/project_action';
 import { localvalue } from '../../configurations/localvalue';
-
+import {MdOutlineRemoveRedEye, MdViewModule} from  "react-icons/md"
 const ProjectDetail = () => {
     var id = localStorage.getItem(`${localvalue.idProject}`);
 
@@ -46,13 +46,10 @@ const ProjectDetail = () => {
                                 </ul> 
                                 <div className="mt-6">
                                     <a class="" target='_blank' href={link}>
-                                    <span className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2">
-                                        Voir le projet
+                                    <span className="inline-block flex space-x-5 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2">
+                                        <MdOutlineRemoveRedEye size={20} /> <span>Voir le projet </span>
                                     </span>
                                     </a>
-                                    <span className="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-                                        Code source
-                                    </span>
                                 </div>
                             </div>
                         </div>

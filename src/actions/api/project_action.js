@@ -48,7 +48,7 @@ export const UpdateProject = async (id, name, coverPicture, description, content
     });
     var config = {
         method: 'put',
-        url: `${baseurl.urlapi}/api/v1/projects/${id}`,
+        url: `${baseurl.urlapi}/api/v1/projects/edit/${id}`,
         headers: {
             'Content-Type': 'application/json',
         },
