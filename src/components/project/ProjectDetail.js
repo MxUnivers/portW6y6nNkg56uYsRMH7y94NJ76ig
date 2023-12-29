@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { LoadAllProjectById } from '../../actions/api/project_action';
+import { Link, useParams } from 'react-router-dom';
+import { LoadAllProjectById, LoadAllProjectByTtitle } from '../../actions/api/project_action';
 import { localvalue } from '../../configurations/localvalue';
 
 const ProjectDetail = () => {
     var id = localStorage.getItem(`${localvalue.idProject}`);
 
+    const params =  useParams();
     const [name, setname] = useState("");
     const [description, setdescription] = useState("");
     const [content, setcontent] = useState("");
@@ -13,7 +14,11 @@ const ProjectDetail = () => {
     const [link, setlink] = useState("");
 
     useEffect(() => {
-        LoadAllProjectById(id, setname, setcoverPicture, setdescription, setcontent, setlink);
+        if(params && params.id){
+            LoadAllProjectByTtitle(params.id, setname, setcoverPicture, setdescription, setcontent, setlink);
+        }else{
+            console.log("")
+        }
     }, []);
 
 

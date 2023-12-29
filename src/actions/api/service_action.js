@@ -22,13 +22,14 @@ export const CreateNewService = async (
     };
     await axios(config)
         .then(function (response) {
-            console.log(JSON.stringify(response.data));
+            // console.log(JSON.stringify(response.data));
             window.location.reload();
             redirect(`/${routing.admin}/${routing.servicelist}`);
 
         })
         .catch(function (error) {
-            console.log(error);
+            // console.log(error);
+            alert("Immposible d'ajouter un nouveau service")
         });
 }
 
@@ -44,7 +45,7 @@ export const UpdateService = async (id, name,coverPicture,description, visible,r
     });
     var config = {
         method: 'put',
-        url: `${baseurl.urlapi}/api/v1/services/${id}`,
+        url: `${baseurl.urlapi}/api/v1/services/edit/${id}`,
         headers: {
             'Content-Type': 'application/json',
         },
@@ -58,6 +59,7 @@ export const UpdateService = async (id, name,coverPicture,description, visible,r
         })
         .catch(function (error) {
             console.log(error);
+            alert("Immposible de modifier service")
         });
 }
 
@@ -104,14 +106,14 @@ export const LoadAllServiceById = async (id,name,coverPicture,description,visibl
         }
     })
         .then(function (response) {
-            console.log(JSON.stringify(response.data));
+            // console.log(JSON.stringify(response.data));
             name(response.data.data.name);
             coverPicture(response.data.data.coverPicture);
             description(response.data.data.description);
             visible(response.data.data.visible);
         })
         .catch(function (error) {
-            console.log(error);
+            console.log("");
         });
 }
 

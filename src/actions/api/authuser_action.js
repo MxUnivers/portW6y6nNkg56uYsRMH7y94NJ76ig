@@ -21,7 +21,7 @@ export const AuthUser = async (username , password , setState,redirect) => {
     };
     await axios(config)
         .then(function (response) {
-            console.log(JSON.stringify(response.data));
+            // console.log(JSON.stringify(response.data));
             localStorage.setItem(localvalue.tokenLogin , `${response.data.key}`);
             localStorage.setItem(localvalue.nameLogin , `${response.data.data.firstname} ${response.data.data.lastname}`);
             localStorage.setItem(localvalue.idLogin , `${response.data.data._id}`);
@@ -29,7 +29,7 @@ export const AuthUser = async (username , password , setState,redirect) => {
         })
         .catch(function (error) {
             console.log(error);
-            setState("nom d'utilisateur ou mot de passe incorrect !")
+            setState("Nom d'utilisateur ou mot de passe incorrect !")
         });
 }
 
@@ -46,12 +46,13 @@ export const DiconnectUser = async (id) => {
     };
     await axios(config)
         .then(function (response) {
-            console.log(response.data.message);
+            // console.log(response.data.message);
             localStorage.removeItem(localvalue.tokenLogin);
             window.location.reload();
         })
         .catch(function (error) {
             console.log(error);
+            alert("Déconnexion impossible");
         });
 }
 

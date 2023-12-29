@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { bgImg } from '../configurations/localvalue'
 import { routing } from '../configurations/routing'
+import { useLocation } from 'react-router-dom';
 
 const NavItem = () => {
+    const  location =  useLocation();
     
     useEffect(() => {
         axios.post('/api/v1/visit');
@@ -22,10 +24,10 @@ const NavItem = () => {
             </button>
             <div class="collapse navbar-collapse visible" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href={`/`} class="nav-item nav-link active">Accuei</a>
-                    <a href={`/${routing.aboutus}`} class="nav-item nav-link">A propos de nous ?</a>
-                    <a href={`/${routing.services}`} class="nav-item nav-link">Services</a>
-                    <a href={`/${routing.project}`} class="nav-item nav-link">Projects</a>
+                    <a href={`/`} class={`${location.pathname=== "/" ? "nav-item nav-link active": "nav-item nav-link"}`}>Accueil</a>
+                    <a href={`/${routing.aboutus}`} class={`${location.pathname=== "/"+routing.aboutus ? "nav-item nav-link active": "nav-item nav-link"}`}>A propos </a>
+                    <a href={`/${routing.services}`} class={`${location.pathname=== "/"+routing.services ? "nav-item nav-link active": "nav-item nav-link"}`}>Services</a>
+                    <a href={`/${routing.project}`} class={`${location.pathname=== "/"+routing.project ? "nav-item nav-link active": "nav-item nav-link"}`}>Projects</a>
                     
                 </div>
                 {/*<butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>

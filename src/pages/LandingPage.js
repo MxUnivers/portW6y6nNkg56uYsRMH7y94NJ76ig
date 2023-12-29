@@ -18,7 +18,6 @@ const LandingPage = () => {
       <LandingService/>
       <LandingProject/>
       <LandingTestimonial/>
-      <Footer/>
     </>
   )
 }

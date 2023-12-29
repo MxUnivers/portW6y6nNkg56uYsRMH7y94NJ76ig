@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { bgImg } from '../../configurations/localvalue'
 import { Button, Modal } from 'react-bootstrap';
+import { CreateNewMessage } from '../../actions/api/message_action';
 
 const LandinAbout = () => {
     const [showModal, setShowModal] = useState(false);
@@ -12,6 +13,17 @@ const LandinAbout = () => {
     const closeModal = () => {
         setShowModal(false);
     };
+
+    const [name, setname] = useState("");
+    const [email, setemail] = useState("");
+    const [telephone, settelephone] = useState("");
+    const [subject, setsubject] = useState("");
+    const [content, setcontent] = useState("");
+
+    const  handleSubmit  =  (event)=>{
+        event.preventDefault();
+        CreateNewMessage(name,email,telephone,subject,content)
+    }
 
     return (
 
@@ -55,36 +67,31 @@ const LandinAbout = () => {
                     <Modal.Title>Infos Contact</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form class="w-full max-w-lg">
+                    <form class="w-full max-w-lg" onSubmit={handleSubmit}>
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="nom complet" />
-                                <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                                <input value={name} onChange = {(e)=>{setname(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="nom complet" />
                             </div>
                             <div class="w-full md:w-1/2 px-3">
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="email" />
+                                <input value={email} onChange = {(e)=>{setemail(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="email" />
                                 <p class="text-gray-600 text-xs italic"></p>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3">
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="telelpone" />
-                                <p class="text-gray-600 text-xs italic"></p>
-                            </div>
-                            <div class="w-full md:w-1/2 px-3">
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="pays" />
+                                <input value={telephone} onChange = {(e)=>{settelephone(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="tel" placeholder="telephone" />
                                 <p class="text-gray-600 text-xs italic"></p>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full px-3 mb-6 md:mb-0">
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Sujet" />
+                                <input value={subject} onChange={(e)=>{setsubject(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Sujet" />
                                 <p class="text-gray-600 text-xs italic"></p>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full px-3 mb-6 md:mb-0">
-                                <textarea rows={4} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="donner plus de details ici" />
+                                <textarea value={content} onChange = {(e)=>{setcontent(e.target.value)}} rows={4} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="donner plus de details ici" />
                                 <p class="text-gray-600 text-xs italic"></p>
                             </div>
                         </div>
