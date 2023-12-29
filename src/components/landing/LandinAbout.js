@@ -20,9 +20,9 @@ const LandinAbout = () => {
     const [subject, setsubject] = useState("");
     const [content, setcontent] = useState("");
 
-    const  handleSubmit  =  (event)=>{
+    const handleSubmit = (event) => {
         event.preventDefault();
-        CreateNewMessage(name,email,telephone,subject,content)
+        CreateNewMessage(name, email, telephone, subject, content)
     }
 
     return (
@@ -68,36 +68,36 @@ const LandinAbout = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <form class="w-full max-w-lg" onSubmit={handleSubmit}>
-                        <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <input value={name} onChange = {(e)=>{setname(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="nom complet" />
-                            </div>
-                            <div class="w-full md:w-1/2 px-3">
-                                <input value={email} onChange = {(e)=>{setemail(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="email" />
+                        <div class="flex flex-wrap -mx-3 mb-2">
+                            <div class="w-full px-3 mb-6 md:mb-0">
+                                <input value={subject} onChange={(e) => { setsubject(e.target.value) }} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Sujet" />
                                 <p class="text-gray-600 text-xs italic"></p>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full md:w-1/2 px-3">
-                                <input value={telephone} onChange = {(e)=>{settelephone(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="tel" placeholder="telephone" />
+                            <div class="w-full  px-3 mb-6 md:mb-0">
+                                <input value={name} onChange={(e) => { setname(e.target.value) }} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="nom complet" />
+                            </div>
+                            <div class="w-full  px-3">
+                                <input value={email} onChange={(e) => { setemail(e.target.value) }} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="email" />
+                                <p class="text-gray-600 text-xs italic"></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <input value={telephone} onChange={(e) => { settelephone(e.target.value) }} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="tel" placeholder="telephone" />
                                 <p class="text-gray-600 text-xs italic"></p>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full px-3 mb-6 md:mb-0">
-                                <input value={subject} onChange={(e)=>{setsubject(e.target.value)}} class="appearance-none block w-full bg-white placeholder:text-gray-800 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Sujet" />
-                                <p class="text-gray-600 text-xs italic"></p>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap -mx-3 mb-2">
-                            <div class="w-full px-3 mb-6 md:mb-0">
-                                <textarea value={content} onChange = {(e)=>{setcontent(e.target.value)}} rows={4} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="donner plus de details ici" />
+                                <textarea value={content} onChange={(e) => { setcontent(e.target.value) }} rows={4} class="appearance-none block w-full bg-white text-gray-900 placeholder:text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="donner plus de details ici" />
                                 <p class="text-gray-600 text-xs italic"></p>
                             </div>
                         </div>
                         <div class="w-full py-3 mt-5 flex justify-end items-center">
                             <div class="flex flew-row justify-center space-x-3">
-                                <button onClick={closeModal} type='button' class="btn btn-outline-info rounded-pill px-10 me-3">retour</button>
+                                <button onClick={closeModal} type='button' class="btn btn-light rounded-pill px-10 me-3">retour</button>
                                 <button type='submit' class="btn btn-outline-primary rounded-pill px-10 me-3">Envoyer </button>
                             </div>
                         </div>
